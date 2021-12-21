@@ -8,6 +8,7 @@ package com.salary.main;
 /**
  *
  * @author daffa
+ * @author erdiansyah
  */
 public class Main {
     
