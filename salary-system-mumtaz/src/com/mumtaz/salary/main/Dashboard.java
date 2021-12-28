@@ -67,28 +67,28 @@ public class Dashboard extends javax.swing.JFrame {
         );
 
         jButton1.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/salary/pictures/dashboard (1).png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/dashboard (1).png"))); // NOI18N
         jButton1.setText("Dashboard");
 
         jButton2.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/salary/pictures/division (1).png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/division (1).png"))); // NOI18N
         jButton2.setText("Master Pegawai");
 
         jButton3.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/salary/pictures/salary (1).png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/debt (1).png"))); // NOI18N
         jButton3.setText("Master Penggajian");
 
         jButton4.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/salary/pictures/debt (1).png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/debt (1).png"))); // NOI18N
         jButton4.setText("Master Hutang");
 
         jButton5.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/salary/pictures/report (1).png"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/report (1).png"))); // NOI18N
         jButton5.setText("Laporan");
 
         jLabel2.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/salary/pictures/menu (1).png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/menu.png"))); // NOI18N
         jLabel2.setText("MENU");
 
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
@@ -125,7 +125,7 @@ public class Dashboard extends javax.swing.JFrame {
         panelUtama.setBackground(new java.awt.Color(255, 204, 204));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/salary/pictures/back-to-school (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/back-to-school (1).png"))); // NOI18N
 
         panelUtama.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
