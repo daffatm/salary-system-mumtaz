@@ -48,7 +48,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 255, 153));
 
-        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 15)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Sistem Penggajian Mumtaz");
 
