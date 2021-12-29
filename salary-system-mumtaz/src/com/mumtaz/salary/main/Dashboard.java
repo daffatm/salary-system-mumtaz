@@ -5,8 +5,11 @@
  */
 package com.mumtaz.salary.main;
 
+import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.mumtaz.salary.view.ViewPegawai;
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
@@ -20,6 +23,10 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * Creates new form Dashboard
      */
+    
+    // Public Variabel
+    ViewPegawai pegawai = new ViewPegawai();
+    
     public Dashboard() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -92,7 +99,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        jButton1.setBackground(new java.awt.Color(51, 204, 51));
+        jButton1.setBackground(new java.awt.Color(112, 219, 112));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/dashboard (1).png"))); // NOI18N
@@ -191,7 +198,7 @@ public class Dashboard extends javax.swing.JFrame {
         panelUtama.setLayout(panelUtamaLayout);
         panelUtamaLayout.setHorizontalGroup(
             panelUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
         );
         panelUtamaLayout.setVerticalGroup(
             panelUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,6 +261,15 @@ public class Dashboard extends javax.swing.JFrame {
         jButton3.setBackground(new Color(51,204,51));
         jButton4.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(51,204,51));
+        
+        
+        this.panelUtama.add(pegawai);
+        pegawai.show();
+        try {
+            pegawai.setMaximum(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -265,6 +281,9 @@ public class Dashboard extends javax.swing.JFrame {
         jButton3.setBackground(new Color(51,204,51));
         jButton4.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(51,204,51));
+        
+        this.panelUtama.getSelectedFrame().dispose();
+        this.panelUtama.remove(pegawai);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

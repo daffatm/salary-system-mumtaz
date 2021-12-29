@@ -92,8 +92,8 @@ public class ModelPegawai {
     public void setKasbon(int kasbon) {
         this.kasbon = kasbon;
     }
-    public void simpanDataPelanggan(){
-           String sql = ("INSERT INTO pegawai (idPegawai,namaPegawai,jenisKelamin,alamat,noTelepon,TglMasuk,jabatan,kasbon)"
+    public void simpanDataPegawai(){
+           String sql = ("INSERT INTO pegawai (idPegawai,namaPegawai,jenisKelamin,alamat,noTelpon,TglMasuk,jabatan,kasbon)"
             +"VALUES ('"+getIdPegawai()+"','"+getNamaPegawaiModel()+"','"+getJenisKelaminModel()+"','"+getAlamat()+"','"+getNoTelepon()+"','"+getTglMasuk()+"','"+getJabatan()+"','"+getKasbon()+"')");
          try{
              PreparedStatement eksekusi =konek.getKoneksi().prepareStatement(sql);
@@ -101,7 +101,7 @@ public class ModelPegawai {
              
              JOptionPane.showMessageDialog(null,"Data Berhasil Disimpan");
          }catch( SQLException ex){
-             JOptionPane.showMessageDialog(null,"Data Gagal Disimpan");
+             JOptionPane.showMessageDialog(null,"Data Gagal Disimpan "+getIdPegawai());
          }          
     }
 }
