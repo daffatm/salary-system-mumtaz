@@ -93,7 +93,7 @@ public class ModelPegawai {
         this.kasbon = kasbon;
     }
     public void simpanDataPelanggan(){
-           String sql = ("INSERT INTO pegawai (namaPelanggan,noHp,jenisKelamin,umur,alamat)"
+           String sql = ("INSERT INTO pegawai (idPegawai,namaPegawai,jenisKelamin,alamat,noTelepon,TglMasuk,jabatan,kasbon)"
             +"VALUES ('"+getIdPegawai()+"','"+getNamaPegawaiModel()+"','"+getJenisKelaminModel()+"','"+getAlamat()+"','"+getNoTelepon()+"','"+getTglMasuk()+"','"+getJabatan()+"','"+getKasbon()+"')");
          try{
              PreparedStatement eksekusi =konek.getKoneksi().prepareStatement(sql);
