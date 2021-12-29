@@ -17,7 +17,7 @@ import com.mumtaz.salary.db.Koneksi;
  *
  * @author dzaki
  */
-public class ModelPegawai {
+public class Pegawai {
     private String idPegawai;
     private String namaPegawaiModel;
     private String jenisKelaminModel;
