@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author erdiansyah
  */
-public class Penggajian {
+public class ModelPenggajian {
     Koneksi koneksi = new Koneksi();
     private String idPenggajian;
     private String idPegawai;
