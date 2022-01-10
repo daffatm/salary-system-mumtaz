@@ -19,8 +19,8 @@ import com.mumtaz.salary.db.Koneksi;
  */
 public class ModelPegawai {
     private String idPegawai;
-    private String namaPegawaiModel;
-    private String jenisKelaminModel;
+    private String namaPegawai;
+    private String jenisKelamin;
     private String alamat;
     private String noTelepon;
     private String tglMasuk;
@@ -37,20 +37,20 @@ public class ModelPegawai {
         this.idPegawai = idPegawai;
     }
 
-    public String getNamaPegawaiModel() {
-        return namaPegawaiModel;
+    public String getNamaPegawai() {
+        return namaPegawai;
     }
 
-    public void setNamaPegawaiModel(String namaPegawaiModel) {
-        this.namaPegawaiModel = namaPegawaiModel;
+    public void setNamaPegawai(String namaPegawai) {
+        this.namaPegawai = namaPegawai;
     }
 
-    public String getJenisKelaminModel() {
-        return jenisKelaminModel;
+    public String getJenisKelamin() {
+        return jenisKelamin;
     }
 
-    public void setJenisKelaminModel(String jenisKelaminModel) {
-        this.jenisKelaminModel = jenisKelaminModel;
+    public void setJenisKelamin(String jenisKelamin) {
+        this.jenisKelamin = jenisKelamin;
     }
 
     public String getAlamat() {
@@ -92,16 +92,48 @@ public class ModelPegawai {
     public void setKasbon(int kasbon) {
         this.kasbon = kasbon;
     }
+    
     public void simpanDataPegawai(){
-           String sql = ("INSERT INTO pegawai (idPegawai,namaPegawai,jenisKelamin,alamat,noTelpon,TglMasuk,jabatan,kasbon)"
-            +"VALUES ('"+getIdPegawai()+"','"+getNamaPegawaiModel()+"','"+getJenisKelaminModel()+"','"+getAlamat()+"','"+getNoTelepon()+"','"+getTglMasuk()+"','"+getJabatan()+"','"+getKasbon()+"')");
-         try{
-             PreparedStatement eksekusi =konek.getKoneksi().prepareStatement(sql);
-             eksekusi.execute();
+        String sql = ("INSERT INTO pegawai (idPegawai,namaPegawai,jenisKelamin,alamat,noTelpon,TglMasuk,jabatan,kasbon)"
+            +"VALUES ('"+getIdPegawai()+"','"+getNamaPegawai()+"','"+getJenisKelamin()+"','"+getAlamat()+"','"+getNoTelepon()+"','"+getTglMasuk()+"','"+getJabatan()+"','"+getKasbon()+"')");
+        
+        try{
+            PreparedStatement eksekusi =konek.getKoneksi().prepareStatement(sql);
+            eksekusi.execute();
              
-             JOptionPane.showMessageDialog(null,"Data Berhasil Disimpan");
-         }catch( SQLException ex){
-             JOptionPane.showMessageDialog(null,"Data Gagal Disimpan "+getIdPegawai());
-         }          
+            JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
+        }catch( SQLException ex){
+            JOptionPane.showMessageDialog(null, "Data Gagal Disimpan");
+        }          
     }
+    
+    public void ubahDataPegawai(){
+        String sql = ("UPDATE pegawai SET namaPegawai='"+ getNamaPegawai() +"',"
+                + " jenisKelamin='"+ getJenisKelamin() +"', alamat='"+ getAlamat() +"', noTelpon='" +getNoTelepon()+ "',"
+                + "TglMasuk='"+ getTglMasuk() +"', jabatan='"+ getJabatan() +"', kasbon='"+ getKasbon() +"' WHERE "
+                + "idPegawai='"+ getIdPegawai() +"'");
+        
+        try {
+            PreparedStatement eksekusi =konek.getKoneksi().prepareStatement(sql);
+            eksekusi.execute();
+             
+            JOptionPane.showMessageDialog(null, "Data Berhasil Diperbarui");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Data Gagal Diperbarui");
+        }
+    }
+    
+    public void hapusDataPegawai(){
+        String sql = ("DELETE FROM pegawai WHERE idPegawai='"+ getIdPegawai() +"'");
+        
+        try {
+            PreparedStatement eksekusi =konek.getKoneksi().prepareStatement(sql);
+            eksekusi.execute();
+             
+            JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Data Gagal Dihapus");
+        }
+    }
+    
 }

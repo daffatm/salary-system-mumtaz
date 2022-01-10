@@ -1,4 +1,3 @@
-
 package com.mumtaz.salary.main;
 
 public class Main {
