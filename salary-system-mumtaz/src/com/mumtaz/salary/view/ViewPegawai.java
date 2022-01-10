@@ -164,6 +164,11 @@ public class ViewPegawai extends javax.swing.JInternalFrame {
                 TombolAddMouseClicked(evt);
             }
         });
+        TombolAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TombolAddActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -205,6 +210,10 @@ public class ViewPegawai extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         tampilForm();
     }//GEN-LAST:event_TombolAddMouseClicked
+
+    private void TombolAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TombolAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TombolAddActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
