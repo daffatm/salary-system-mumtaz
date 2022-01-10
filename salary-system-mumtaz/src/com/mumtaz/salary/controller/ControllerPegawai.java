@@ -5,8 +5,10 @@
  */
 package com.mumtaz.salary.controller;
 
+import com.formdev.flatlaf.ui.FlatPopupMenuSeparatorUI;
 import com.mumtaz.salary.model.ModelPegawai;
 import com.mumtaz.salary.view.FormPegawai;
+import com.mumtaz.salary.view.ViewPegawai;
 import java.text.SimpleDateFormat;
 
 /**
@@ -16,10 +18,21 @@ import java.text.SimpleDateFormat;
 public class ControllerPegawai {
     private ModelPegawai MP;
     private FormPegawai FP;
+    private ViewPegawai VP;
     String TampilanDate = "yyyy-MM-dd";
     
     public ControllerPegawai(FormPegawai FP) {
         this.FP = FP;
+    }
+    
+    public void add(){
+        FP.getBtnDelete().setVisible(false);
+        FP.getBtnSave().setText("Save");
+    }
+    
+    public void change(){
+        FP.getBtnDelete().setVisible(true);
+        FP.getBtnSave().setText("Update");
     }
     
     public void Simpan(){
@@ -29,11 +42,11 @@ public class ControllerPegawai {
         String tglMasuk = String.valueOf(fm.format(FP.getTglMasuk().getDate()));
         
         MP.setIdPegawai(FP.idPegawai());
-        MP.setNamaPegawaiModel(FP.getNamaPegawai().getText());
+        MP.setNamaPegawai(FP.getNamaPegawai().getText());
         if (FP.getJkPria().isSelected()){
-            MP.setJenisKelaminModel(FP.getJkPria().getText());
+            MP.setJenisKelamin(FP.getJkPria().getText());
         } else if (FP.getJkWanita().isSelected()) {
-            MP.setJenisKelaminModel(FP.getJkWanita().getText());
+            MP.setJenisKelamin(FP.getJkWanita().getText());
         }
         MP.setNoTelepon(FP.getNoTelpon().getText());
         MP.setJabatan(FP.getJabatan().getSelectedItem().toString());
@@ -42,5 +55,35 @@ public class ControllerPegawai {
         MP.setAlamat(FP.getAlamat().getText());
         
         MP.simpanDataPegawai();
+    }
+    
+    public void Ubah(){
+        MP = new ModelPegawai();
+        
+        SimpleDateFormat fm = new SimpleDateFormat(TampilanDate);
+        String tglMasuk = String.valueOf(fm.format(FP.getTglMasuk().getDate()));
+        
+        MP.setIdPegawai(FP.idPegawai);
+        MP.setNamaPegawai(FP.getNamaPegawai().getText());
+        if (FP.getJkPria().isSelected()){
+            MP.setJenisKelamin(FP.getJkPria().getText());
+        } else if (FP.getJkWanita().isSelected()) {
+            MP.setJenisKelamin(FP.getJkWanita().getText());
+        }
+        MP.setNoTelepon(FP.getNoTelpon().getText());
+        MP.setJabatan(FP.getJabatan().getSelectedItem().toString());
+        MP.setTglMasuk(tglMasuk);
+        MP.setKasbon(Integer.parseInt(FP.getKasbon().getText()));
+        MP.setAlamat(FP.getAlamat().getText());
+        
+        MP.ubahDataPegawai();
+    }
+    
+    public void Hapus(){
+        MP = new ModelPegawai();
+        
+        MP.setIdPegawai(FP.idPegawai);
+        
+        MP.hapusDataPegawai();
     }
 }

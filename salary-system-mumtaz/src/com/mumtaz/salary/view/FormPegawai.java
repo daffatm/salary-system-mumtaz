@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mumtaz.salary.view;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
@@ -12,34 +7,55 @@ import com.toedter.calendar.JDateChooser;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
-/**
- *
- * @author daffa
- */
 public class FormPegawai extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FormPegawai
-     */
     private ViewPegawai VP;
     private ControllerPegawai CP;
     
-    public FormPegawai(ViewPegawai VP) {
+    public String idPegawai;
+    
+    public FormPegawai(ViewPegawai VP){
         initComponents();
         
         this.VP = VP;
-        
         CP = new ControllerPegawai(this);
+        CP.add();
+    }
+    
+    public FormPegawai(ViewPegawai VP, String id, String nama, String jk, String alamat, String noTelp, String tglMasuk, String jabatan, String kasbon) throws ParseException{
+        initComponents();
+        
+        this.VP = VP;
+        CP = new ControllerPegawai(this);
+        CP.change();
+        
+        this.idPegawai = id;
+        this.namaPegawai.setText(nama);
+        if (jk.equals(this.jkPria.getText())){
+            this.jkPria.setSelected(true);
+        }else{
+            this.jkWanita.setSelected(true);
+        }
+        this.alamat.setText(alamat);
+        this.noTelpon.setText(noTelp);
+        String TampilanDate = "yyyy-MM-dd";
+        SimpleDateFormat fm = new SimpleDateFormat(TampilanDate);
+        Date date = fm.parse(tglMasuk);
+        this.tglMasuk.setDate(date);
+        this.jabatan.setSelectedItem(jabatan);
+        this.kasbon.setText(kasbon);
     }
 
     public JTextArea getAlamat() {
@@ -72,6 +88,14 @@ public class FormPegawai extends javax.swing.JFrame {
 
     public JDateChooser getTglMasuk() {
         return tglMasuk;
+    }
+
+    public JButton getBtnDelete() {
+        return btnDelete;
+    }
+
+    public JButton getBtnSave() {
+        return btnSave;
     }
     
     public String idPegawai() {
@@ -174,6 +198,9 @@ public class FormPegawai extends javax.swing.JFrame {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
         });
 
         btnSave.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -191,6 +218,11 @@ public class FormPegawai extends javax.swing.JFrame {
 
         btnDelete.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("No Telpon");
@@ -210,7 +242,7 @@ public class FormPegawai extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Kasbon");
 
-        tglMasuk.setDateFormatString("d MMM, y");
+        tglMasuk.setDateFormatString("d-MM-y");
         tglMasuk.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tglMasuk.setMinimumSize(new java.awt.Dimension(30, 21));
 
@@ -223,7 +255,7 @@ public class FormPegawai extends javax.swing.JFrame {
         jLabel7.setText("Alamat");
 
         alamat.setColumns(20);
-        alamat.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        alamat.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         alamat.setRows(5);
         jScrollPane1.setViewportView(alamat);
 
@@ -243,7 +275,7 @@ public class FormPegawai extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -259,9 +291,9 @@ public class FormPegawai extends javax.swing.JFrame {
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5))
+                                .addGap(29, 29, 29)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(29, 29, 29)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(namaPegawai, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(noTelpon, javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,9 +307,8 @@ public class FormPegawai extends javax.swing.JFrame {
                                                 .addGap(0, 0, Short.MAX_VALUE)))
                                         .addGap(2, 2, 2))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(29, 29, 29)
                                         .addComponent(jabatan, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
@@ -292,7 +323,7 @@ public class FormPegawai extends javax.swing.JFrame {
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(jScrollPane1))))
                         .addGap(2, 2, 2)))
-                .addGap(36, 36, 36))
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,17 +380,39 @@ public class FormPegawai extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_formWindowClosed
-
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        CP.Simpan();
-        VP.tampilDataPegawai();
+        if(btnSave.getText().equals("Save")) {
+            CP.Simpan();
+            VP.tampilDataPegawai();
+        }else if(btnSave.getText().equals("Update")){
+            CP.Ubah();
+            VP.tampilDataPegawai();
+        }
+        
         this.dispose();
+        VP.getTombolAdd().setEnabled(true);
+        VP.getTablePegawai().setEnabled(true);
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        CP.Hapus();
+        VP.tampilDataPegawai();
+        
+        this.dispose();
+        VP.getTombolAdd().setEnabled(true);
+        VP.getTablePegawai().setEnabled(true);
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        VP.getTombolAdd().setEnabled(true);
+        VP.getTablePegawai().setEnabled(true);
+    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+//        VP.getTombolAdd().setEnabled(false);
+//        VP.getTablePegawai().setEnabled(false);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
