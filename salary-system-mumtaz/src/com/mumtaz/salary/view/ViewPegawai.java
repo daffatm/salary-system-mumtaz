@@ -161,6 +161,11 @@ public class ViewPegawai extends javax.swing.JInternalFrame {
                 TombolAddMouseClicked(evt);
             }
         });
+        TombolAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TombolAddActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -225,7 +230,6 @@ public class ViewPegawai extends javax.swing.JInternalFrame {
             Logger.getLogger(ViewPegawai.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_tablePegawaiMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton TombolAdd;

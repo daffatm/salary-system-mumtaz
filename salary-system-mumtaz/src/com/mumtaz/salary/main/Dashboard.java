@@ -5,6 +5,7 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.mumtaz.salary.view.ViewPegawai;
+import com.mumtaz.salary.view.ViewPenggajian;
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
@@ -12,6 +13,7 @@ import javax.swing.UIManager;
 public class Dashboard extends javax.swing.JFrame {
 
     ViewPegawai pegawai = new ViewPegawai();
+    ViewPenggajian penggajian = new ViewPenggajian();
     
     public Dashboard() {
         initComponents();
@@ -28,7 +30,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        tombolMenuPenggajian = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         panelUtama = new javax.swing.JDesktopPane();
@@ -104,15 +106,15 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(51, 204, 51));
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/debt (1).png"))); // NOI18N
-        jButton3.setText("Master Penggajian");
-        jButton3.setBorder(null);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        tombolMenuPenggajian.setBackground(new java.awt.Color(51, 204, 51));
+        tombolMenuPenggajian.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tombolMenuPenggajian.setForeground(new java.awt.Color(255, 255, 255));
+        tombolMenuPenggajian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/debt (1).png"))); // NOI18N
+        tombolMenuPenggajian.setText("Master Penggajian");
+        tombolMenuPenggajian.setBorder(null);
+        tombolMenuPenggajian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                tombolMenuPenggajianActionPerformed(evt);
             }
         });
 
@@ -146,7 +148,7 @@ public class Dashboard extends javax.swing.JFrame {
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tombolMenuPenggajian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
@@ -160,7 +162,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tombolMenuPenggajian, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -212,7 +214,7 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         jButton1.setBackground(new Color(51,204,51));
         jButton2.setBackground(new Color(51,204,51));
-        jButton3.setBackground(new Color(51,204,51));
+        tombolMenuPenggajian.setBackground(new Color(51,204,51));
         jButton4.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(112, 219, 112));
         
@@ -222,25 +224,33 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         jButton1.setBackground(new Color(51,204,51));
         jButton2.setBackground(new Color(51,204,51));
-        jButton3.setBackground(new Color(51,204,51));
+        tombolMenuPenggajian.setBackground(new Color(51,204,51));
         jButton4.setBackground(new Color(112, 219, 112));
         jButton5.setBackground(new Color(51,204,51));
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void tombolMenuPenggajianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolMenuPenggajianActionPerformed
         // TODO add your handling code here:
         jButton1.setBackground(new Color(51,204,51));
         jButton2.setBackground(new Color(51,204,51));
-        jButton3.setBackground(new Color(112, 219, 112));
+        tombolMenuPenggajian.setBackground(new Color(112, 219, 112));
         jButton4.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(51,204,51));
-    }//GEN-LAST:event_jButton3ActionPerformed
+        
+        this.panelUtama.add(penggajian);
+        penggajian.show();
+        try {
+            penggajian.setMaximum(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_tombolMenuPenggajianActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         jButton1.setBackground(new Color(51,204,51));
         jButton2.setBackground(new Color(112, 219, 112));
-        jButton3.setBackground(new Color(51,204,51));
+        tombolMenuPenggajian.setBackground(new Color(51,204,51));
         jButton4.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(51,204,51));
         
@@ -260,7 +270,7 @@ public class Dashboard extends javax.swing.JFrame {
         // On : 112, 219, 112
         jButton1.setBackground(new Color(112, 219, 112));
         jButton2.setBackground(new Color(51,204,51));
-        jButton3.setBackground(new Color(51,204,51));
+        tombolMenuPenggajian.setBackground(new Color(51,204,51));
         jButton4.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(51,204,51));
         
@@ -288,7 +298,6 @@ public class Dashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
@@ -297,5 +306,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel panelMenu;
     private javax.swing.JDesktopPane panelUtama;
+    private javax.swing.JButton tombolMenuPenggajian;
     // End of variables declaration//GEN-END:variables
 }
