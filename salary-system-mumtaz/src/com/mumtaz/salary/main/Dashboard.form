@@ -51,8 +51,8 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jButton2" max="32767" attributes="0"/>
-              <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+              <Component id="tombolMenuPegawai" max="32767" attributes="0"/>
+              <Component id="tombolMenuDashboard" alignment="0" max="32767" attributes="0"/>
               <Component id="tombolMenuPenggajian" alignment="0" max="32767" attributes="0"/>
               <Component id="jButton4" alignment="0" max="32767" attributes="0"/>
               <Component id="jButton5" max="32767" attributes="0"/>
@@ -64,9 +64,9 @@
               <Group type="102" alignment="1" attributes="0">
                   <Component id="jPanel1" min="-2" pref="168" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="45" max="-2" attributes="0"/>
+                  <Component id="tombolMenuDashboard" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" pref="45" max="-2" attributes="0"/>
+                  <Component id="tombolMenuPegawai" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="tombolMenuPenggajian" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -150,7 +150,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="tombolMenuDashboard">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="70" green="db" red="70" type="rgb"/>
@@ -170,10 +170,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tombolMenuDashboardActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="tombolMenuPegawai">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="cc" red="33" type="rgb"/>
@@ -193,7 +193,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tombolMenuPegawaiActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="tombolMenuPenggajian">

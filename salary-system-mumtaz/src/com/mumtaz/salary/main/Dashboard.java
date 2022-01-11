@@ -15,6 +15,7 @@ public class Dashboard extends javax.swing.JFrame {
     ViewPegawai pegawai = new ViewPegawai();
     ViewPenggajian penggajian = new ViewPenggajian();
     
+    
     public Dashboard() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -28,8 +29,8 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        tombolMenuDashboard = new javax.swing.JButton();
+        tombolMenuPegawai = new javax.swing.JButton();
         tombolMenuPenggajian = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -82,27 +83,27 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        jButton1.setBackground(new java.awt.Color(112, 219, 112));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/dashboard (1).png"))); // NOI18N
-        jButton1.setText("Dashboard");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        tombolMenuDashboard.setBackground(new java.awt.Color(112, 219, 112));
+        tombolMenuDashboard.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tombolMenuDashboard.setForeground(new java.awt.Color(255, 255, 255));
+        tombolMenuDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/dashboard (1).png"))); // NOI18N
+        tombolMenuDashboard.setText("Dashboard");
+        tombolMenuDashboard.setBorder(null);
+        tombolMenuDashboard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                tombolMenuDashboardActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(51, 204, 51));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/division (1).png"))); // NOI18N
-        jButton2.setText("Master Pegawai");
-        jButton2.setBorder(null);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        tombolMenuPegawai.setBackground(new java.awt.Color(51, 204, 51));
+        tombolMenuPegawai.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tombolMenuPegawai.setForeground(new java.awt.Color(255, 255, 255));
+        tombolMenuPegawai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/division (1).png"))); // NOI18N
+        tombolMenuPegawai.setText("Master Pegawai");
+        tombolMenuPegawai.setBorder(null);
+        tombolMenuPegawai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                tombolMenuPegawaiActionPerformed(evt);
             }
         });
 
@@ -146,8 +147,8 @@ public class Dashboard extends javax.swing.JFrame {
         panelMenu.setLayout(panelMenuLayout);
         panelMenuLayout.setHorizontalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tombolMenuPegawai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tombolMenuDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(tombolMenuPenggajian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -158,9 +159,9 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tombolMenuDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tombolMenuPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tombolMenuPenggajian, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -212,8 +213,8 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        jButton1.setBackground(new Color(51,204,51));
-        jButton2.setBackground(new Color(51,204,51));
+        tombolMenuDashboard.setBackground(new Color(51,204,51));
+        tombolMenuPegawai.setBackground(new Color(51,204,51));
         tombolMenuPenggajian.setBackground(new Color(51,204,51));
         jButton4.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(112, 219, 112));
@@ -222,8 +223,8 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        jButton1.setBackground(new Color(51,204,51));
-        jButton2.setBackground(new Color(51,204,51));
+        tombolMenuDashboard.setBackground(new Color(51,204,51));
+        tombolMenuPegawai.setBackground(new Color(51,204,51));
         tombolMenuPenggajian.setBackground(new Color(51,204,51));
         jButton4.setBackground(new Color(112, 219, 112));
         jButton5.setBackground(new Color(51,204,51));
@@ -231,11 +232,15 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void tombolMenuPenggajianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolMenuPenggajianActionPerformed
         // TODO add your handling code here:
-        jButton1.setBackground(new Color(51,204,51));
-        jButton2.setBackground(new Color(51,204,51));
+        tombolMenuDashboard.setBackground(new Color(51,204,51));
+        tombolMenuPegawai.setBackground(new Color(51,204,51));
         tombolMenuPenggajian.setBackground(new Color(112, 219, 112));
         jButton4.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(51,204,51));
+        
+        if (pegawai.isShowing()) {
+            pegawai.dispose();
+        }
         
         this.panelUtama.add(penggajian);
         penggajian.show();
@@ -246,14 +251,17 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tombolMenuPenggajianActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void tombolMenuPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolMenuPegawaiActionPerformed
         // TODO add your handling code here:
-        jButton1.setBackground(new Color(51,204,51));
-        jButton2.setBackground(new Color(112, 219, 112));
+        tombolMenuDashboard.setBackground(new Color(51,204,51));
+        tombolMenuPegawai.setBackground(new Color(112, 219, 112));
         tombolMenuPenggajian.setBackground(new Color(51,204,51));
         jButton4.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(51,204,51));
         
+        if (penggajian.isShowing()) {
+            penggajian.dispose();
+        }
         
         this.panelUtama.add(pegawai);
         pegawai.show();
@@ -262,20 +270,24 @@ public class Dashboard extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_tombolMenuPegawaiActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void tombolMenuDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolMenuDashboardActionPerformed
         // TODO add your handling code here:
         // Basic : 51,204,51
         // On : 112, 219, 112
-        jButton1.setBackground(new Color(112, 219, 112));
-        jButton2.setBackground(new Color(51,204,51));
+        tombolMenuDashboard.setBackground(new Color(112, 219, 112));
+        tombolMenuPegawai.setBackground(new Color(51,204,51));
         tombolMenuPenggajian.setBackground(new Color(51,204,51));
         jButton4.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(51,204,51));
         
-        this.panelUtama.getSelectedFrame().dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if(penggajian.isShowing()){
+            penggajian.dispose();
+        }else if(pegawai.isShowing()){
+            pegawai.dispose();
+        }
+    }//GEN-LAST:event_tombolMenuDashboardActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,8 +308,6 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
@@ -306,6 +316,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel panelMenu;
     private javax.swing.JDesktopPane panelUtama;
+    private javax.swing.JButton tombolMenuDashboard;
+    private javax.swing.JButton tombolMenuPegawai;
     private javax.swing.JButton tombolMenuPenggajian;
     // End of variables declaration//GEN-END:variables
 }

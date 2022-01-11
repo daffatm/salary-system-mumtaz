@@ -5,6 +5,7 @@ import com.mumtaz.salary.db.Koneksi;
 import com.mumtaz.salary.main.Dashboard;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -159,11 +160,6 @@ public class ViewPegawai extends javax.swing.JInternalFrame {
         TombolAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TombolAddMouseClicked(evt);
-            }
-        });
-        TombolAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TombolAddActionPerformed(evt);
             }
         });
 
