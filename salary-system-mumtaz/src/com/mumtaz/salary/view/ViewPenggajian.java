@@ -452,7 +452,7 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
        int respons = JOptionPane.showOptionDialog(null, "Penggajian Sukses, apakah Anda ingin mencetak Slip Gaji?", "Penggajian", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, pilihan, pilihan[1]);
        if(respons == JOptionPane.YES_OPTION){
            //Taro perintah Disini
-           System.out.println("Anda Memilih Tidak j");
+           System.out.println("Anda Memilih Tidak jjj");
        }else if(respons == JOptionPane.NO_OPTION){
            //Jika no perintah
            System.out.println("Anda Memilih Ya");
