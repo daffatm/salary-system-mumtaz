@@ -104,4 +104,5 @@ public class ModelPegawai {
              JOptionPane.showMessageDialog(null,"Data Gagal Disimpan "+getIdPegawai());
          }          
     }
+    
 }

@@ -71,7 +71,7 @@ public class FormPegawai extends javax.swing.JFrame {
     }
 
     public JDateChooser getTglMasuk() {
-        return tglMasuk;
+        return tglMasuk;    
     }
     
     public String idPegawai() {
@@ -259,9 +259,9 @@ public class FormPegawai extends javax.swing.JFrame {
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5))
+                                .addGap(29, 29, 29)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(29, 29, 29)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(namaPegawai, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(noTelpon, javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,14 +275,13 @@ public class FormPegawai extends javax.swing.JFrame {
                                                 .addGap(0, 0, Short.MAX_VALUE)))
                                         .addGap(2, 2, 2))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(29, 29, 29)
                                         .addComponent(jabatan, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7))
-                                .addGap(74, 74, 74)
+                                .addGap(58, 58, 58)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
@@ -334,15 +333,15 @@ public class FormPegawai extends javax.swing.JFrame {
                             .addComponent(kasbon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
                             .addComponent(jLabel6))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(83, 83, 83))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
                                 .addComponent(jLabel7)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(83, 83, 83))))
         );
 
         pack();

@@ -43,4 +43,5 @@ public class ControllerPegawai {
         
         MP.simpanDataPegawai();
     }
+    public void Filter(){}
 }
