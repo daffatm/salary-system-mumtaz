@@ -6,6 +6,7 @@ import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.mumtaz.salary.view.ViewPegawai;
 import com.mumtaz.salary.view.ViewPenggajian;
+import com.mumtaz.salary.view.ViewPinjaman;
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
@@ -14,7 +15,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     ViewPegawai pegawai = new ViewPegawai();
     ViewPenggajian penggajian = new ViewPenggajian();
-    
+    ViewPinjaman pinjaman = new ViewPinjaman();
     
     public Dashboard() {
         initComponents();
@@ -32,7 +33,7 @@ public class Dashboard extends javax.swing.JFrame {
         tombolMenuDashboard = new javax.swing.JButton();
         tombolMenuPegawai = new javax.swing.JButton();
         tombolMenuPenggajian = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        tombolMenuPinjaman = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         panelUtama = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
@@ -119,15 +120,15 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(51, 204, 51));
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/debt (1).png"))); // NOI18N
-        jButton4.setText("Master Hutang");
-        jButton4.setBorder(null);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        tombolMenuPinjaman.setBackground(new java.awt.Color(51, 204, 51));
+        tombolMenuPinjaman.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tombolMenuPinjaman.setForeground(new java.awt.Color(255, 255, 255));
+        tombolMenuPinjaman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/debt (1).png"))); // NOI18N
+        tombolMenuPinjaman.setText("Master Pinjaman");
+        tombolMenuPinjaman.setBorder(null);
+        tombolMenuPinjaman.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                tombolMenuPinjamanActionPerformed(evt);
             }
         });
 
@@ -150,7 +151,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addComponent(tombolMenuPegawai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(tombolMenuDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(tombolMenuPenggajian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tombolMenuPinjaman, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
         );
@@ -165,7 +166,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tombolMenuPenggajian, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tombolMenuPinjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(175, Short.MAX_VALUE))
@@ -216,26 +217,39 @@ public class Dashboard extends javax.swing.JFrame {
         tombolMenuDashboard.setBackground(new Color(51,204,51));
         tombolMenuPegawai.setBackground(new Color(51,204,51));
         tombolMenuPenggajian.setBackground(new Color(51,204,51));
-        jButton4.setBackground(new Color(51,204,51));
+        tombolMenuPinjaman.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(112, 219, 112));
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void tombolMenuPinjamanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolMenuPinjamanActionPerformed
         // TODO add your handling code here:
         tombolMenuDashboard.setBackground(new Color(51,204,51));
         tombolMenuPegawai.setBackground(new Color(51,204,51));
         tombolMenuPenggajian.setBackground(new Color(51,204,51));
-        jButton4.setBackground(new Color(112, 219, 112));
+        tombolMenuPinjaman.setBackground(new Color(112, 219, 112));
         jButton5.setBackground(new Color(51,204,51));
-    }//GEN-LAST:event_jButton4ActionPerformed
+        
+        if (pegawai.isShowing()) {
+            pegawai.dispose();
+        }else if(penggajian.isShowing()){
+            penggajian.dispose();
+        }
+        this.panelUtama.add(pinjaman);
+        pinjaman.show();
+        try {
+            pinjaman.setMaximum(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_tombolMenuPinjamanActionPerformed
 
     private void tombolMenuPenggajianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolMenuPenggajianActionPerformed
         // TODO add your handling code here:
         tombolMenuDashboard.setBackground(new Color(51,204,51));
         tombolMenuPegawai.setBackground(new Color(51,204,51));
         tombolMenuPenggajian.setBackground(new Color(112, 219, 112));
-        jButton4.setBackground(new Color(51,204,51));
+        tombolMenuPinjaman.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(51,204,51));
         
         if (pegawai.isShowing()) {
@@ -256,7 +270,7 @@ public class Dashboard extends javax.swing.JFrame {
         tombolMenuDashboard.setBackground(new Color(51,204,51));
         tombolMenuPegawai.setBackground(new Color(112, 219, 112));
         tombolMenuPenggajian.setBackground(new Color(51,204,51));
-        jButton4.setBackground(new Color(51,204,51));
+        tombolMenuPinjaman.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(51,204,51));
         
         if (penggajian.isShowing()) {
@@ -279,7 +293,7 @@ public class Dashboard extends javax.swing.JFrame {
         tombolMenuDashboard.setBackground(new Color(112, 219, 112));
         tombolMenuPegawai.setBackground(new Color(51,204,51));
         tombolMenuPenggajian.setBackground(new Color(51,204,51));
-        jButton4.setBackground(new Color(51,204,51));
+        tombolMenuPinjaman.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(51,204,51));
         
         if(penggajian.isShowing()){
@@ -308,7 +322,6 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
@@ -319,5 +332,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton tombolMenuDashboard;
     private javax.swing.JButton tombolMenuPegawai;
     private javax.swing.JButton tombolMenuPenggajian;
+    private javax.swing.JButton tombolMenuPinjaman;
     // End of variables declaration//GEN-END:variables
 }
