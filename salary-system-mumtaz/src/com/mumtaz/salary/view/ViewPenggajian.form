@@ -45,7 +45,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="kasbonView" alignment="0" max="32767" attributes="0"/>
+                          <Component id="kasBonView" alignment="0" max="32767" attributes="0"/>
                           <Component id="sisaKasbonView" alignment="0" pref="179" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -102,7 +102,7 @@
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                          <Component id="kasbonView" min="-2" max="-2" attributes="0"/>
+                          <Component id="kasBonView" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -180,8 +180,8 @@
                   </Group>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="namaPegawaiView" pref="192" max="32767" attributes="0"/>
-                      <Component id="jabatanView" max="32767" attributes="0"/>
+                      <Component id="jabatanView" pref="192" max="32767" attributes="0"/>
+                      <Component id="namaPegawaiView" max="32767" attributes="0"/>
                       <Component id="idPegawaiView" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -210,12 +210,12 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jabatanView" alignment="3" max="32767" attributes="0"/>
+                                      <Component id="namaPegawaiView" alignment="3" max="32767" attributes="0"/>
                                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="namaPegawaiView" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jabatanView" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -275,7 +275,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="jabatanView">
+        <Component class="javax.swing.JTextField" name="namaPegawaiView">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
@@ -285,7 +285,7 @@
             <Property name="text" type="java.lang.String" value="Nama Pegawai"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="namaPegawaiView">
+        <Component class="javax.swing.JTextField" name="jabatanView">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
@@ -300,6 +300,7 @@
             <Property name="text" type="java.lang.String" value="Cari"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tombolCariViewMouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tombolCariViewActionPerformed"/>
           </Events>
         </Component>
@@ -350,7 +351,7 @@
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="kasbonView">
+    <Component class="javax.swing.JTextField" name="kasBonView">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="Kas Bon"/>
@@ -402,8 +403,8 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField2" max="32767" attributes="0"/>
-                              <Component id="jTextField1" max="32767" attributes="0"/>
+                              <Component id="keteranganView" max="32767" attributes="0"/>
+                              <Component id="insentifView" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -421,12 +422,12 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="insentifView" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="keteranganView" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="tombolTambahInsentifView" min="-2" max="-2" attributes="0"/>
@@ -448,12 +449,12 @@
             <Property name="text" type="java.lang.String" value="Keterangan"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="insentifView">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="keteranganView">
         </Component>
         <Component class="javax.swing.JButton" name="tombolTambahInsentifView">
           <Properties>
@@ -467,7 +468,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="tabelInsentifView">
+            <Component class="javax.swing.JTable" name="tabelInsentif">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="4">
@@ -487,6 +488,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="PROSES"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tombolProsesViewActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

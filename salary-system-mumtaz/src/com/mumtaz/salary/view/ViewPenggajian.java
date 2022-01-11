@@ -4,19 +4,93 @@
  */
 package com.mumtaz.salary.view;
 
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author lenovo
  */
 public class ViewPenggajian extends javax.swing.JInternalFrame {
-
+    //private controllerPenggajian cPG;
+    private DefaultTableModel model;
+    
     /**
      * Creates new form ViewPenggajian
      */
     public ViewPenggajian() {
         initComponents();
+        
+        //cPG = new controllerPenggajian(this);
+        model = new DefaultTableModel();
+        tabelInsentif.setModel(model);
+        //menambahkan kolom-kolom untuk tabel pelanggan
+        model.addColumn("ID Insentif");
+        model.addColumn("ID Penggajian");
+        model.addColumn("Insentif");
+        model.addColumn("Keterangan");
+
     }
 
+    public JTextField getIdPegawaiView() {
+        return idPegawaiView;
+    }
+    
+    public JTextField getNamaPegawaiView() {
+        return jabatanView;
+    }
+    
+    public JTextField getJabatanView() {
+        return namaPegawaiView;
+    }
+
+    public JLabel getTotalGajiView() {
+        return totalGajiView;
+    }
+
+    public JTextField getJamPelajaranView() {
+        return jamPelajaranView;
+    }
+
+    public JTextField getTotalJamPelajaranView() {
+        return totalJamPelajaranView;
+    }
+    
+    public JTextField getHariKerjaView() {
+        return hariKerjaView;
+    }
+
+    public JTextField getTotalHariKerjaView() {
+        return totalHariKerjaView;
+    }
+
+    public JTextField getTunjanganView() {
+        return tunjanganView;
+    }
+    
+    public JTextField getKasBonView() {
+        return kasBonView;
+    }
+
+    public JTextField getPotonganView() {
+        return potonganView;
+    }
+
+    public JTextField getSisaKasbonView() {
+        return sisaKasbonView;
+    }
+
+    public JTextField getInsentifView() {
+        return insentifView;
+    }
+
+    public JTextField getKeteranganView() {
+        return keteranganView;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,9 +107,9 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
         idPegawaiView = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         totalGajiView = new javax.swing.JLabel();
-        jabatanView = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         namaPegawaiView = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jabatanView = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         tombolCariView = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -47,7 +121,7 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
         jamPelajaranView = new javax.swing.JTextField();
         hariKerjaView = new javax.swing.JTextField();
         tunjanganView = new javax.swing.JTextField();
-        kasbonView = new javax.swing.JTextField();
+        kasBonView = new javax.swing.JTextField();
         potonganView = new javax.swing.JTextField();
         sisaKasbonView = new javax.swing.JTextField();
         totalJamPelajaranView = new javax.swing.JTextField();
@@ -55,11 +129,11 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        insentifView = new javax.swing.JTextField();
+        keteranganView = new javax.swing.JTextField();
         tombolTambahInsentifView = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelInsentifView = new javax.swing.JTable();
+        tabelInsentif = new javax.swing.JTable();
         tombolProsesView = new javax.swing.JButton();
 
         setClosable(true);
@@ -109,15 +183,20 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
             .addComponent(totalGajiView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jabatanView.setEditable(false);
+        namaPegawaiView.setEditable(false);
 
         jLabel3.setText("Nama Pegawai");
 
-        namaPegawaiView.setEditable(false);
+        jabatanView.setEditable(false);
 
         jLabel4.setText("Jabatan");
 
         tombolCariView.setText("Cari");
+        tombolCariView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tombolCariViewMouseClicked(evt);
+            }
+        });
         tombolCariView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tombolCariViewActionPerformed(evt);
@@ -136,8 +215,8 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(namaPegawaiView, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-                    .addComponent(jabatanView)
+                    .addComponent(jabatanView, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                    .addComponent(namaPegawaiView)
                     .addComponent(idPegawaiView))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tombolCariView)
@@ -161,11 +240,11 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
                                     .addComponent(idPegawaiView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jabatanView)
+                                    .addComponent(namaPegawaiView)
                                     .addComponent(jLabel3))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(namaPegawaiView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jabatanView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel4)))
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(447, 447, 447))))
@@ -189,8 +268,8 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
 
         tunjanganView.setText("0");
 
-        kasbonView.setEditable(false);
-        kasbonView.setText("Kas Bon");
+        kasBonView.setEditable(false);
+        kasBonView.setText("Kas Bon");
 
         potonganView.setText("0");
 
@@ -209,11 +288,11 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Keterangan");
 
-        jTextField1.setText("0");
+        insentifView.setText("0");
 
         tombolTambahInsentifView.setText("Tambah");
 
-        tabelInsentifView.setModel(new javax.swing.table.DefaultTableModel(
+        tabelInsentif.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -224,7 +303,7 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tabelInsentifView);
+        jScrollPane1.setViewportView(tabelInsentif);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -240,8 +319,8 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
                             .addComponent(jLabel10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField1)))
+                            .addComponent(keteranganView)
+                            .addComponent(insentifView)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(tombolTambahInsentifView)))
@@ -253,11 +332,11 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(insentifView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(keteranganView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tombolTambahInsentifView)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -266,6 +345,11 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
         );
 
         tombolProsesView.setText("PROSES");
+        tombolProsesView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tombolProsesViewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -290,7 +374,7 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
                             .addComponent(jLabel9))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(kasbonView)
+                            .addComponent(kasBonView)
                             .addComponent(sisaKasbonView, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -335,7 +419,7 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(kasbonView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(kasBonView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
@@ -354,14 +438,33 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tombolCariViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolCariViewActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_tombolCariViewActionPerformed
+
+    private void tombolCariViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tombolCariViewMouseClicked
+        ViewListDataPegawai form = new ViewListDataPegawai(this);
+        form.setVisible(true);
+    }//GEN-LAST:event_tombolCariViewMouseClicked
+
+    private void tombolProsesViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolProsesViewActionPerformed
+        // TODO add your handling code here:
+        Object[] pilihan = {"Tidak", "Ya"};
+       int respons = JOptionPane.showOptionDialog(null, "Penggajian Sukses, apakah Anda ingin mencetak Slip Gaji?", "Penggajian", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, pilihan, pilihan[1]);
+       if(respons == JOptionPane.YES_OPTION){
+           //Taro perintah Disini
+           System.out.println("Anda Memilih Tidak");
+       }else if(respons == JOptionPane.NO_OPTION){
+           //Jika no perintah
+           System.out.println("Anda Memilih Ya");
+       }
+    }//GEN-LAST:event_tombolProsesViewActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Tunjangan;
     private javax.swing.JTextField hariKerjaView;
     private javax.swing.JTextField idPegawaiView;
+    private javax.swing.JTextField insentifView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -380,15 +483,14 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jabatanView;
     private javax.swing.JTextField jamPelajaranView;
-    private javax.swing.JTextField kasbonView;
+    private javax.swing.JTextField kasBonView;
+    private javax.swing.JTextField keteranganView;
     private javax.swing.JTextField namaPegawaiView;
     private javax.swing.JTextField potonganView;
     private javax.swing.JTextField sisaKasbonView;
-    private javax.swing.JTable tabelInsentifView;
+    private javax.swing.JTable tabelInsentif;
     private javax.swing.JButton tombolCariView;
     private javax.swing.JButton tombolProsesView;
     private javax.swing.JButton tombolTambahInsentifView;
