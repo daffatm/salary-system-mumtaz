@@ -27,6 +27,9 @@ public class ModelPenggajian {
     private int ttlInsentif;
     private int potongan;
     private int gajiBersih;
+    private int kasbon;
+    private int insentif;
+    private String keteranganIns;
 
     public String getIdPenggajian() {
         return idPenggajian;
@@ -123,11 +126,58 @@ public class ModelPenggajian {
     public void setGajiBersih(int gajiBersih) {
         this.gajiBersih = gajiBersih;
     }
+
+    public int getKasbon() {
+        return kasbon;
+    }
+
+    public void setKasbon(int kasbon) {
+        this.kasbon = kasbon;
+    }
+
+    public int getInsentif() {
+        return insentif;
+    }
+
+    public void setInsentif(int insentif) {
+        this.insentif = insentif;
+    }
+
+    public String getKeteranganIns() {
+        return keteranganIns;
+    }
+
+    public void setKeteranganIns(String keteranganIns) {
+        this.keteranganIns = keteranganIns;
+    }
     
     public void simpanGaji(){
         String sql = "INSERT INTO penggajian (idPenggajian, idPegawai, jamKerja, hariKerja, gajiPokok, transport, tunjangan, ttlGajiPokok, ttlTransport, ttlInsentif, potongan, gajiBersih)"
                 + "VALUES ('"+getIdPenggajian()+"','"+getIdPegawai()+"','"+getJamKerja()+"','"+getHariKerja()+"','"+getGajiPokok()+"','"+getTransport()+"','"+getTunjangan()+"'"
                 + ",'"+getTtlGajiPokok()+"','"+getTtltransport()+"','"+getTtlInsentif()+"','"+getPotongan()+"','"+getGajiBersih()+"')";
+        try {
+          PreparedStatement eksekusi = koneksi.getKoneksi().prepareStatement(sql);
+          eksekusi.execute();
+          JOptionPane.showMessageDialog(null,"data berhasil disimpan");
+        }catch (SQLException ex) {
+          JOptionPane.showMessageDialog(null,"Data gagal disimpan \n"+ex);
+        }
+    }
+    public void updateKasbon(){
+        String sql = "UPDATE pegawai SET kasbon = '"+getKasbon()+"'"
+                     +"'WHERE idPegawai = '"+getIdPegawai()+"'";
+        
+        try {
+          PreparedStatement eksekusi = koneksi.getKoneksi().prepareStatement(sql);
+          eksekusi.execute();
+          JOptionPane.showMessageDialog(null,"data berhasil disimpan");
+        }catch (SQLException ex) {
+          JOptionPane.showMessageDialog(null,"Data gagal disimpan \n"+ex);
+        }
+    }
+    public void tambahInsentif(){
+        String sql = "INSERT INTO insentif (idPenggajian, insentif, keterangan)"
+                     + "VALUES ('"+getIdPenggajian()+"','"+getInsentif()+"','"+getKeteranganIns()+"')";
         try {
           PreparedStatement eksekusi = koneksi.getKoneksi().prepareStatement(sql);
           eksekusi.execute();
