@@ -29,7 +29,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel1" pref="630" max="32767" attributes="0"/>
                   <Component id="jPanel4" max="32767" attributes="0"/>
-                  <Component id="tombolProsesView" max="32767" attributes="0"/>
+                  <Component id="tombolProses" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -46,7 +46,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="kasBonView" alignment="0" max="32767" attributes="0"/>
-                          <Component id="sisaKasbonView" alignment="0" pref="179" max="32767" attributes="0"/>
+                          <Component id="sisaKasBonView" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="hariKerjaView" alignment="0" pref="40" max="32767" attributes="0"/>
@@ -111,14 +111,14 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="sisaKasbonView" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="sisaKasBonView" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="tombolProsesView" min="-2" max="-2" attributes="0"/>
+              <Component id="tombolProses" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="25" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -185,7 +185,7 @@
                       <Component id="idPegawaiView" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="tombolCariView" min="-2" max="-2" attributes="0"/>
+                  <Component id="tombolCariPegawai" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel5" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -198,7 +198,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="tombolCariView" min="-2" max="-2" attributes="0"/>
+                          <Component id="tombolCariPegawai" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -295,13 +295,13 @@
             <Property name="text" type="java.lang.String" value="Jabatan"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="tombolCariView">
+        <Component class="javax.swing.JButton" name="tombolCariPegawai">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cari"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tombolCariViewMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tombolCariViewActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tombolCariPegawaiMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tombolCariPegawaiActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -340,16 +340,26 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jamPelajaranViewKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jamPelajaranViewKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="hariKerjaView">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="hariKerjaViewKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="tunjanganView">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tunjanganViewKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="kasBonView">
       <Properties>
@@ -361,8 +371,11 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="potonganViewKeyReleased"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="sisaKasbonView">
+    <Component class="javax.swing.JTextField" name="sisaKasBonView">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="Sisa Kas Bon"/>
@@ -371,13 +384,13 @@
     <Component class="javax.swing.JTextField" name="totalJamPelajaranView">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
-        <Property name="text" type="java.lang.String" value="Total"/>
+        <Property name="text" type="java.lang.String" value="Gaji Pokok"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="totalHariKerjaView">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
-        <Property name="text" type="java.lang.String" value="Total"/>
+        <Property name="text" type="java.lang.String" value="Uang Transport"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel6">
@@ -409,7 +422,7 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="tombolTambahInsentifView" min="-2" max="-2" attributes="0"/>
+                          <Component id="tombolTambahInsentif" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -430,7 +443,7 @@
                       <Component id="keteranganView" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="tombolTambahInsentifView" min="-2" max="-2" attributes="0"/>
+                  <Component id="tombolTambahInsentif" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" pref="104" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -456,10 +469,13 @@
         </Component>
         <Component class="javax.swing.JTextField" name="keteranganView">
         </Component>
-        <Component class="javax.swing.JButton" name="tombolTambahInsentifView">
+        <Component class="javax.swing.JButton" name="tombolTambahInsentif">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tambah"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tombolTambahInsentifMouseClicked"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
@@ -484,12 +500,12 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="tombolProsesView">
+    <Component class="javax.swing.JButton" name="tombolProses">
       <Properties>
         <Property name="text" type="java.lang.String" value="PROSES"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tombolProsesViewActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tombolProsesActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

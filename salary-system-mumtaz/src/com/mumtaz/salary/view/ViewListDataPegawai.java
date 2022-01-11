@@ -133,6 +133,7 @@ public class ViewListDataPegawai extends javax.swing.JFrame {
         vPG.getIdPegawaiView().setText(tabelDataPegawai.getValueAt(listX, 0).toString());
         vPG.getNamaPegawaiView().setText(tabelDataPegawai.getValueAt(listX, 1).toString());
         vPG.getJabatanView().setText(tabelDataPegawai.getValueAt(listX, 6).toString());
+        vPG.getKasBonView().setText(tabelDataPegawai.getValueAt(listX, 7).toString());
         
         //ketika tabel diklik, maka list pelanggan akan diclose
         dispose();
