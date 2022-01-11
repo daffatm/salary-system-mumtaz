@@ -61,7 +61,7 @@
               </Group>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="178" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="239" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -89,7 +89,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="62" max="-2" attributes="0"/>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -108,7 +108,6 @@
               <Image iconType="3" name="/com/mumtaz/salary/pictures/division (1).png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Master Data Pegawai"/>
-            <Property name="verticalAlignment" type="int" value="3"/>
           </Properties>
         </Component>
       </SubComponents>

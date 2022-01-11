@@ -89,9 +89,14 @@ public class ViewListDataPegawai extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelDataPegawai = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Daftar Pegawai");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 300));
+        setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         tabelDataPegawai.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -125,6 +130,7 @@ public class ViewListDataPegawai extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabelDataPegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelDataPegawaiMouseClicked
@@ -135,9 +141,23 @@ public class ViewListDataPegawai extends javax.swing.JFrame {
         vPG.getJabatanView().setText(tabelDataPegawai.getValueAt(listX, 6).toString());
         vPG.getKasBonView().setText(tabelDataPegawai.getValueAt(listX, 7).toString());
         
+        if(tabelDataPegawai.getValueAt(listX, 6).toString().equals("Kepala Sekolah")){
+            vPG.getTunjanganView().setText("2000000");
+            vPG.tunjangan = 2000000;
+        }else if(tabelDataPegawai.getValueAt(listX, 6).toString().equals("Tata Usaha")){
+            vPG.getTunjanganView().setText("50000");
+            vPG.tunjangan = 50000;
+        }else{
+            vPG.getTunjanganView().setText("0");
+            vPG.tunjangan = 0;
+        }
         //ketika tabel diklik, maka list pelanggan akan diclose
         dispose();
     }//GEN-LAST:event_tabelDataPegawaiMouseClicked
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        vPG.hitungTotalGaji();
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

@@ -328,11 +328,12 @@
           <Font name="Tahoma" size="12" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
+          <StringArray count="5">
             <StringItem index="0" value="Guru Reguler"/>
             <StringItem index="1" value="Wali Kelas"/>
-            <StringItem index="2" value="Wakil Kepala Sekolah"/>
-            <StringItem index="3" value="Kepala Sekolah"/>
+            <StringItem index="2" value="Tata Usaha"/>
+            <StringItem index="3" value="Wakil Kepala Sekolah"/>
+            <StringItem index="4" value="Kepala Sekolah"/>
           </StringArray>
         </Property>
       </Properties>

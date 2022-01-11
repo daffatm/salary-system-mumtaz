@@ -265,7 +265,7 @@ public class FormPegawai extends javax.swing.JFrame {
         kasbon.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jabatan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jabatan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Guru Reguler", "Wali Kelas", "Wakil Kepala Sekolah", "Kepala Sekolah" }));
+        jabatan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Guru Reguler", "Wali Kelas", "Tata Usaha", "Wakil Kepala Sekolah", "Kepala Sekolah" }));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Rp.");
