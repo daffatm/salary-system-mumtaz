@@ -8,7 +8,7 @@ import com.mumtaz.salary.db.Koneksi;
 <<<<<<< HEAD
 =======
 import java.awt.Font;
->>>>>>> 47abc7e3cc933b4c2c358adc56c2a2ef422b763a
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -256,7 +256,7 @@ public class ViewListDataPegawai extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
     private void tabelDataPegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelDataPegawaiMouseClicked
         // TODO add your handling code here:
