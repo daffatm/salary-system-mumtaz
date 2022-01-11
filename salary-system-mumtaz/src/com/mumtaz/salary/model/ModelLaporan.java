@@ -16,13 +16,33 @@ import com.mumtaz.salary.db.Koneksi;
  * @author dzaki
  */
 public class ModelLaporan {
-    
+    private String fromDate;
+    private String toDate;
+
+    public String getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(String fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    public String getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(String toDate) {
+        this.toDate = toDate;
+    }
     
     
     public void Filter (){
         
         Koneksi connect = new Koneksi();
-            String sql = "SELECT * FROM pegawai WHERE '2021-12-30' ";
+        
+        
+        
+            String sql = "SELECT * FROM penggajian WHERE tglGajian >= "+getToDate()+" && tglGajian <= "+getFromDate()+"";
         try {
           PreparedStatement eksekusi = connect.getKoneksi().prepareStatement(sql);
           eksekusi.execute();
