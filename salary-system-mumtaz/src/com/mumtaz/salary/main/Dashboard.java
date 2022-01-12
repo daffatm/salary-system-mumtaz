@@ -4,6 +4,7 @@ import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import com.mumtaz.salary.view.ViewLaporan;
 import com.mumtaz.salary.view.ViewPegawai;
 import com.mumtaz.salary.view.ViewPenggajian;
 import java.awt.Color;
@@ -13,6 +14,7 @@ import javax.swing.UIManager;
 public class Dashboard extends javax.swing.JFrame {
 
     ViewPegawai pegawai = new ViewPegawai();
+    ViewLaporan laporan = new ViewLaporan();
     ViewPenggajian penggajian = new ViewPenggajian();
     
     
@@ -219,6 +221,13 @@ public class Dashboard extends javax.swing.JFrame {
         jButton4.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(112, 219, 112));
         
+        this.panelUtama.add(laporan);
+        laporan.show();
+        try {
+            laporan.setMaximum(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -282,6 +291,10 @@ public class Dashboard extends javax.swing.JFrame {
         jButton4.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(51,204,51));
         
+        this.panelUtama.getSelectedFrame().dispose();
+        this.panelUtama.remove(pegawai);
+        this.panelUtama.remove(laporan);
+    }//GEN-LAST:event_jButton1ActionPerformed
         if(penggajian.isShowing()){
             penggajian.dispose();
         }else if(pegawai.isShowing()){

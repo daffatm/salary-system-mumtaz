@@ -25,6 +25,7 @@ public class ModelPegawai {
     private String noTelepon;
     private String tglMasuk;
     private String jabatan;
+    
     private int kasbon;
     
     Koneksi konek = new Koneksi();
