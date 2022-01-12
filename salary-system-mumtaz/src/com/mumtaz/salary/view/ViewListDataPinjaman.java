@@ -16,15 +16,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author erdiansyah
  */
-public class ViewListDataPegawai extends javax.swing.JFrame {
+public class ViewListDataPinjaman extends javax.swing.JFrame {
 
     /**
-     * Creates new form ViewListDataPegawai
+     * Creates new form ViewListDataPinjaman
      */
     private ViewPinjaman VP;
     private DefaultTableModel model;
     private String sql = "";
-    public ViewListDataPegawai(ViewPinjaman VP) {
+    public ViewListDataPinjaman(ViewPinjaman VP) {
         initComponents();
         this.VP = VP;
         model = new DefaultTableModel();
@@ -56,7 +56,7 @@ public class ViewListDataPegawai extends javax.swing.JFrame {
                 model.addRow(hasil);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ViewListDataPegawai.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ViewListDataPinjaman.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

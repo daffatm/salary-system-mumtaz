@@ -167,7 +167,7 @@ public class ViewPinjaman extends javax.swing.JInternalFrame {
 
     private void tombolCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolCariActionPerformed
         // TODO add your handling code here:
-        ViewListDataPegawai vldp = new ViewListDataPegawai(this);
+        ViewListDataPinjaman vldp = new ViewListDataPinjaman(this);
         vldp.setVisible(true);
     }//GEN-LAST:event_tombolCariActionPerformed
 
