@@ -56,6 +56,7 @@ public class ControllerPegawai {
         
         MP.simpanDataPegawai();
     }
+    public void Filter(){}
     
     public void Ubah(){
         MP = new ModelPegawai();

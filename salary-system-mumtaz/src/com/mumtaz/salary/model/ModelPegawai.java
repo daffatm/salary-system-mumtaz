@@ -25,6 +25,7 @@ public class ModelPegawai {
     private String noTelepon;
     private String tglMasuk;
     private String jabatan;
+    
     private int kasbon;
     
     Koneksi konek = new Koneksi();
@@ -105,35 +106,6 @@ public class ModelPegawai {
         }catch( SQLException ex){
             JOptionPane.showMessageDialog(null, "Data Gagal Disimpan");
         }          
-    }
-    
-    public void ubahDataPegawai(){
-        String sql = ("UPDATE pegawai SET namaPegawai='"+ getNamaPegawai() +"',"
-                + " jenisKelamin='"+ getJenisKelamin() +"', alamat='"+ getAlamat() +"', noTelpon='" +getNoTelepon()+ "',"
-                + "TglMasuk='"+ getTglMasuk() +"', jabatan='"+ getJabatan() +"', kasbon='"+ getKasbon() +"' WHERE "
-                + "idPegawai='"+ getIdPegawai() +"'");
-        
-        try {
-            PreparedStatement eksekusi =konek.getKoneksi().prepareStatement(sql);
-            eksekusi.execute();
-             
-            JOptionPane.showMessageDialog(null, "Data Berhasil Diperbarui");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Data Gagal Diperbarui");
-        }
-    }
-    
-    public void hapusDataPegawai(){
-        String sql = ("DELETE FROM pegawai WHERE idPegawai='"+ getIdPegawai() +"'");
-        
-        try {
-            PreparedStatement eksekusi =konek.getKoneksi().prepareStatement(sql);
-            eksekusi.execute();
-             
-            JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Data Gagal Dihapus");
-        }
     }
     
 }

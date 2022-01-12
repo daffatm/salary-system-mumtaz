@@ -162,6 +162,17 @@ public class ModelPenggajian {
         }catch (SQLException ex) {
           JOptionPane.showMessageDialog(null,"Data gagal disimpan \n"+ex);
         }
+        
+    }
+    public void Filter (){
+            String sql = "SELECT * FROM pegawai WHERE '2021-12-30' ";
+        try {
+          PreparedStatement eksekusi = koneksi.getKoneksi().prepareStatement(sql);
+          eksekusi.execute();
+          JOptionPane.showMessageDialog(null,"data berhasil disimpan");
+        }catch (SQLException ex) {
+          JOptionPane.showMessageDialog(null,"Data gagal disimpan \n"+ex);
+        }
     }
     public void updateKasbon(){
         String sql = "UPDATE pegawai SET kasbon = '"+getKasbon()+"'"
