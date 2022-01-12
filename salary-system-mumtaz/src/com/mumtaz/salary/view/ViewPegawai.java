@@ -1,35 +1,33 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package com.mumtaz.salary.view;
 
+import com.mumtaz.salary.controller.ControllerPegawai;
 import com.mumtaz.salary.db.Koneksi;
+import com.mumtaz.salary.main.Dashboard;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Suhendra
- */
 public class ViewPegawai extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ViewPegawai
-     */
-    
     private DefaultTableModel model;
+    
     public ViewPegawai() {
-        initComponents();
+        initComponents(); 
         
         model = new DefaultTableModel();
         tablePegawai.setModel(model);
         tablePegawai.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        tablePegawai.getTableHeader().setPreferredSize(new Dimension(5, 38));
         tablePegawai.setFont(new Font("Tahoma", Font.PLAIN, 14));
         
         model.addColumn("ID");
@@ -43,8 +41,14 @@ public class ViewPegawai extends javax.swing.JInternalFrame {
         
         tampilDataPegawai();
     }
-    
-    
+
+    public JButton getTombolAdd() {
+        return TombolAdd;
+    }
+
+    public JTable getTablePegawai() {
+        return tablePegawai;
+    }
     
     // function
     private void tampilForm() {
@@ -110,7 +114,6 @@ public class ViewPegawai extends javax.swing.JInternalFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mumtaz/salary/pictures/division (1).png"))); // NOI18N
         jLabel1.setText("Master Data Pegawai");
-        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -126,21 +129,15 @@ public class ViewPegawai extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         tablePegawai.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tablePegawai.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        tablePegawai.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePegawaiMouseClicked(evt);
             }
-        ));
+        });
         jScrollPane1.setViewportView(tablePegawai);
 
         jPanel2.setBackground(new java.awt.Color(121, 255, 77));
@@ -169,9 +166,6 @@ public class ViewPegawai extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -182,6 +176,10 @@ public class ViewPegawai extends javax.swing.JInternalFrame {
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addComponent(TombolAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(22, 22, 22))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,7 +192,7 @@ public class ViewPegawai extends javax.swing.JInternalFrame {
                         .addGap(16, 16, 16)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -202,10 +200,31 @@ public class ViewPegawai extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TombolAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TombolAddMouseClicked
-        // TODO add your handling code here:
         tampilForm();
+//        this.TombolAdd.setEnabled(false);
+//        this.tablePegawai.setEnabled(false);
     }//GEN-LAST:event_TombolAddMouseClicked
 
+    private void tablePegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePegawaiMouseClicked
+        int index = tablePegawai.getSelectedRow();
+        
+        String idView = String.valueOf(tablePegawai.getValueAt(index, 0));
+        String namaView = String.valueOf(tablePegawai.getValueAt(index, 1));
+        String jkView = String.valueOf(tablePegawai.getValueAt(index, 2));
+        String alamatView = String.valueOf(tablePegawai.getValueAt(index, 3));
+        String noTelpView = String.valueOf(tablePegawai.getValueAt(index, 4));
+        String tglMasukView = String.valueOf(tablePegawai.getValueAt(index, 5));
+        String jabatanView = String.valueOf(tablePegawai.getValueAt(index, 6));
+        String kasbonView = String.valueOf(tablePegawai.getValueAt(index, 7));
+        
+//        this.TombolAdd.setEnabled(false);
+//        this.tablePegawai.setEnabled(false);
+        try {
+            new FormPegawai(this, idView, namaView, jkView, alamatView, noTelpView, tglMasukView, jabatanView, kasbonView).setVisible(true);
+        } catch (ParseException ex) {
+            Logger.getLogger(ViewPegawai.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_tablePegawaiMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton TombolAdd;
