@@ -1,23 +1,35 @@
 package com.mumtaz.salary.view;
 
+import com.mumtaz.salary.db.Koneksi;
 import java.awt.Font;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import com.mumtaz.salary.controller.ControllerPenggajian;
+import java.sql.PreparedStatement;
 
 public class ViewPenggajian extends javax.swing.JInternalFrame {
     
+    private ControllerPenggajian CP;
     private DefaultTableModel model;
-    int gajiPokok;
-    int uangTransport;
+    public int gajiPokok;
+    public int uangTransport;
     public int tunjangan;
-    int sisaKasBon;
-    int insentif;
+    public int sisaKasBon;
+    public int insentif;
+    public int totalGaji;
     
     public ViewPenggajian() {
         initComponents();
-        
+        CP = new ControllerPenggajian(this);
         model = new DefaultTableModel();
         tabelInsentif.setModel(model);
         tabelInsentif.setModel(model);
@@ -84,31 +96,88 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
         return keteranganView;
     }
     
+    public String idPenggajian() {
+        String newPenggajian = "";
+        String id = "SP";
+        int number = 0;
+        String TampilanDate = "yyyyMM";
+        SimpleDateFormat fm = new SimpleDateFormat(TampilanDate);
+        String tglGajian = String.valueOf(fm.format(new Date()));
+        
+        String format = id+tglGajian;
+        
+        String kode = getMaxPenggajian();
+        
+        
+        if (kode == "") {
+            number = 1;
+        } else {
+            if (kode.substring(0,8).equals(format)) {
+                number = Integer.parseInt(kode.substring(8,10));
+                number++;
+                
+            } else {
+                number = 1;
+            }
+        }
+        
+        newPenggajian = format+String.format("%02d", number);
+        
+        return newPenggajian;
+    }
+    
+    private String getMaxPenggajian(){
+        
+        String sql = "SELECT MAX(idPenggajian) AS id FROM penggajian";
+        String id = "";
+        
+        try {
+            Statement stat = (Statement) Koneksi.getKoneksi().createStatement();
+            ResultSet res = stat.executeQuery(sql);
+            
+            while(res.next()){
+                Object[] hasil;
+                hasil = new Object[1];
+                
+                hasil[0] = res.getString("id");
+                if (hasil[0] != null) {
+                    id = hasil[0].toString();
+                } else {
+                    id = "";
+                }
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewPegawai.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return id;
+    }
+    
     private void hitungGajiPokok(int jamPelajaran){
-        int gajiPokok = jamPelajaran*22000;
+        int gajiPokok = jamPelajaran*this.gajiPokok;
         totalJamPelajaranView.setText(""+gajiPokok);
-        this.gajiPokok = gajiPokok;
     }
     
     private void hitungUangTransport(int hariKerja){
-        int uangTransport = hariKerja*18000;
+        int uangTransport = hariKerja*this.uangTransport;
         totalHariKerjaView.setText(""+uangTransport);
-        this.uangTransport = uangTransport;
     }
     
     private void hitungSisaKasBon(int potongan){
         int kasbon = Integer.parseInt(kasBonView.getText());
         int sisaKasBon = kasbon-potongan;
         sisaKasBonView.setText(""+sisaKasBon);
-        this.sisaKasBon = sisaKasBon;
     }
     
     public void hitungTotalGaji(){
+        int gajiPokok = Integer.parseInt(this.totalJamPelajaranView.getText());
+        int uangTransport = Integer.parseInt(this.totalHariKerjaView.getText());
         if(!(potonganView.getText().equals(""))){
-            int totalGaji = gajiPokok+uangTransport+tunjangan+insentif-Integer.parseInt(potonganView.getText());
+            this.totalGaji = gajiPokok+uangTransport+tunjangan+insentif-Integer.parseInt(potonganView.getText());
             totalGajiView.setText("Rp "+totalGaji+",00");
         }else if(potonganView.getText().equals("")){
-            int totalGaji = gajiPokok+uangTransport+tunjangan+insentif-0;
+            this.totalGaji = gajiPokok+uangTransport+tunjangan+insentif-0;
             totalGajiView.setText("Rp "+totalGaji+",00");
         }
     }
@@ -527,6 +596,25 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tombolCariPegawaiMouseClicked
 
     private void tombolProsesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolProsesActionPerformed
+        CP.simpanGaji();
+        CP.updateKasbon();
+        int jumlahRow = tabelInsentif.getRowCount();
+        Object [][] hasil;
+        hasil = new Object [2][2];
+        String idPenggajian = idPenggajian();
+        for(int x = 0; x < jumlahRow; x++){
+            hasil[x][0] = tabelInsentif.getValueAt(x,0).toString();
+            hasil[x][1] = tabelInsentif.getValueAt(x,1).toString();
+   
+            String sql = "INSERT INTO insentif (idPenggajian, insentif, keterangan) VALUES('"+idPenggajian+"','"+hasil [x][0]+"'"
+                    +",'"+hasil [x][1]+"')";
+            try {
+                PreparedStatement eksekusi = Koneksi.getKoneksi().prepareStatement(sql);
+                eksekusi.execute();
+            }catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null,"Data Insentif gagal disimpan \n"+ex);
+            }
+        }
         Object[] pilihan = {"Tidak", "Ya"};
         int respons = JOptionPane.showOptionDialog(null, "Penggajian Sukses, apakah Anda ingin mencetak Slip Gaji?", "Penggajian", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, pilihan, pilihan[1]);
         if(respons == JOptionPane.YES_OPTION){
@@ -536,6 +624,8 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
            //Jika no perintah
            System.out.println("Anda Memilih Ya");
        }
+       ViewPegawai VP = new ViewPegawai();
+       VP.tampilDataPegawai();
     }//GEN-LAST:event_tombolProsesActionPerformed
 
     
@@ -583,7 +673,7 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
         
         if(!(insentifView.getText().equals(""))){
             int insentif = Integer.parseInt(insentifView.getText());
-            this.insentif = insentif;
+            this.insentif = insentif + this.insentif;
         }
         hitungTotalGaji();
         bersihkanInsentif();
