@@ -21,11 +21,19 @@ public class ControllerPinjaman {
     public ControllerPinjaman(ViewPinjaman VK) {
         this.VP = VK;
     }
+    
     public void updatePinjaman(){
         MP = new ModelPinjaman();
         
         MP.setIdPegawai(VP.getIdPegawai().getText());
         MP.setKasbon(Integer.parseInt(VP.getTotalKasbon().getText()));
         MP.updatePinjaman();
+    }
+    
+    public void clear(){
+        VP.getIdPegawai().setText("");
+        VP.getNamaPegawai().setText("");
+        VP.getJabatan().setText("");
+        VP.getTotalKasbon().setText("Rp. 0,00");
     }
 }

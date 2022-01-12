@@ -58,13 +58,10 @@ public class ViewLaporan extends javax.swing.JInternalFrame {
 
         model.addColumn("ID Penggajian");
         model.addColumn("ID Pegawai");
-        model.addColumn("Jam Kerja");
-        model.addColumn("Hari Kerja");
+        model.addColumn("Nama Pegawai");
         model.addColumn("Gaji Pokok");
         model.addColumn("Transport");
         model.addColumn("Tunjangan");
-        model.addColumn("Gaji Pokok");
-        model.addColumn("Transport");
         model.addColumn("Insentif");
         model.addColumn("Potongan");
         model.addColumn("Gaji Bersih");
@@ -89,23 +86,23 @@ public class ViewLaporan extends javax.swing.JInternalFrame {
         FileOutputStream fos = null;
         BufferedOutputStream bos = null;
         XSSFWorkbook wb = null;
-        
+
         try {
             JFileChooser fileChooser = new JFileChooser("C:\\Users\\daffa\\Documents");
             fileChooser.setDialogTitle("Save as");
             FileNameExtensionFilter fnef = new FileNameExtensionFilter("Excel Files", "xls", "xlsx", "xlsm");
             fileChooser.setFileFilter(fnef);
             int option = fileChooser.showSaveDialog(null);
-            
+
             if (option == JFileChooser.APPROVE_OPTION) {
                 wb = new XSSFWorkbook();
                 XSSFSheet ws = wb.createSheet("Gaji Pegawai");
-                
+
                 TreeMap<String, Object[]> data = new TreeMap<>();
-                data.put(" -1", new Object[]{model.getColumnName(0), model.getColumnName(1), model.getColumnName(2), model.getColumnName(3), model.getColumnName(4), model.getColumnName(5), model.getColumnName(6), model.getColumnName(7), model.getColumnName(8), model.getColumnName(9), model.getColumnName(10), model.getColumnName(11), model.getColumnName(12)});
+                data.put(" -1", new Object[]{model.getColumnName(0), model.getColumnName(1), model.getColumnName(2), model.getColumnName(3), model.getColumnName(4), model.getColumnName(5), model.getColumnName(6), model.getColumnName(7), model.getColumnName(8), model.getColumnName(9)});
 
                 for (int i = 0; i < model.getRowCount(); i++) {
-                    data.put(Integer.toString(i), new Object[]{getCellValue(i, 0), getCellValue(i, 1), getCellValue(i, 2), getCellValue(i, 3), getCellValue(i, 4), getCellValue(i, 5), getCellValue(i, 6), getCellValue(i, 7), getCellValue(i, 8), getCellValue(i, 9), getCellValue(i, 10), getCellValue(i, 11), getCellValue(i, 12)});
+                    data.put(Integer.toString(i), new Object[]{getCellValue(i, 0), getCellValue(i, 1), getCellValue(i, 2), getCellValue(i, 3), getCellValue(i, 4), getCellValue(i, 5), getCellValue(i, 6), getCellValue(i, 7), getCellValue(i, 8), getCellValue(i, 9)});
                 }
 
                 Set<String> ids = data.keySet();
@@ -123,8 +120,8 @@ public class ViewLaporan extends javax.swing.JInternalFrame {
                         cell.setCellValue(o.toString());
                     }
                 }
-                
-                fos = new FileOutputStream(fileChooser.getSelectedFile()+".xlsx");
+
+                fos = new FileOutputStream(fileChooser.getSelectedFile() + ".xlsx");
                 bos = new BufferedOutputStream(fos);
                 wb.write(bos);
 //                wb.write(fos);
@@ -135,13 +132,13 @@ public class ViewLaporan extends javax.swing.JInternalFrame {
             Logger.getLogger(ViewLaporan.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
-                if(bos != null){
+                if (bos != null) {
                     bos.close();
                 }
-                if(fos != null){
+                if (fos != null) {
                     fos.close();
                 }
-                if(wb != null){
+                if (wb != null) {
                     wb.close();
                 }
             } catch (IOException ex) {
@@ -154,7 +151,9 @@ public class ViewLaporan extends javax.swing.JInternalFrame {
         model.getDataVector().removeAllElements();
         model.fireTableDataChanged();
 
-        String sql = "SELECT * FROM penggajian";
+        String sql = "SELECT idPenggajian, idPegawai, namaPegawai, ttlGajiPokok,"
+                + " ttlTransport, tunjangan, ttlInsentif, potongan, gajiBersih,"
+                + " tglGajian FROM penggajian INNER JOIN pegawai USING(idPegawai)";
 
         try {
             Statement stat = (Statement) Koneksi.getKoneksi().createStatement();
@@ -162,21 +161,18 @@ public class ViewLaporan extends javax.swing.JInternalFrame {
 
             while (res.next()) {
                 Object[] hasil;
-                hasil = new Object[13];
+                hasil = new Object[10];
 
                 hasil[0] = res.getString("idPenggajian");
                 hasil[1] = res.getString("idPegawai");
-                hasil[2] = res.getString("jamKerja");
-                hasil[3] = res.getString("hariKerja");
-                hasil[4] = res.getString("gajiPokok");
-                hasil[5] = res.getString("transport");
-                hasil[6] = res.getString("tunjangan");
-                hasil[7] = res.getString("ttlGajiPokok");
-                hasil[8] = res.getString("ttlTransport");
-                hasil[9] = res.getString("ttlInsentif");
-                hasil[10] = res.getString("potongan");
-                hasil[11] = res.getString("gajiBersih");
-                hasil[12] = res.getString("tglGajian");
+                hasil[2] = res.getString("namaPegawai");
+                hasil[3] = res.getString("ttlGajiPokok");
+                hasil[4] = res.getString("ttlTransport");
+                hasil[5] = res.getString("tunjangan");
+                hasil[6] = res.getString("ttlInsentif");
+                hasil[7] = res.getString("potongan");
+                hasil[8] = res.getString("gajiBersih");
+                hasil[9] = res.getString("tglGajian");
 
                 model.addRow(hasil);
             }
@@ -188,41 +184,43 @@ public class ViewLaporan extends javax.swing.JInternalFrame {
     public void filterDataLaporan() {
         model.getDataVector().removeAllElements();
         model.fireTableDataChanged();
-
         SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
-        String date1 = String.valueOf(fm.format(getFromDate().getDate()));
-        String date2 = String.valueOf(fm.format(getToDate().getDate()));
+        
+        if (String.valueOf(getFromDate().getDate()).equals("null") || String.valueOf(getToDate().getDate()).equals("null")) {
+            tampilDataLaporan();
+        } else {
+            String date1 = String.valueOf(fm.format(getFromDate().getDate()));
+            String date2 = String.valueOf(fm.format(getToDate().getDate()));
 
-        String sql = "SELECT * FROM penggajian WHERE tglGajian BETWEEN '" + date1 + "' AND '" + date2 + "'";
+            String sql = "SELECT idPenggajian, idPegawai, namaPegawai, ttlGajiPokok,"
+                    + " ttlTransport, tunjangan, ttlInsentif, potongan, gajiBersih,"
+                    + " tglGajian FROM penggajian INNER JOIN pegawai USING(idPegawai)"
+                    + " WHERE tglGajian BETWEEN '" + date1 + "' AND '" + date2 + "'";
 
-        try {
-            Statement stat = (Statement) Koneksi.getKoneksi().createStatement();
-            ResultSet res = stat.executeQuery(sql);
+            try {
+                Statement stat = (Statement) Koneksi.getKoneksi().createStatement();
+                ResultSet res = stat.executeQuery(sql);
 
-            while (res.next()) {
-                Object[] hasil;
-                hasil = new Object[13];
+                while (res.next()) {
+                    Object[] hasil;
+                    hasil = new Object[10];
 
-                hasil[0] = res.getString("idPenggajian");
-                hasil[1] = res.getString("idPegawai");
-                hasil[2] = res.getString("jamKerja");
-                hasil[3] = res.getString("hariKerja");
-                hasil[4] = res.getString("gajiPokok");
-                hasil[5] = res.getString("transport");
-                hasil[6] = res.getString("tunjangan");
-                hasil[7] = res.getString("ttlGajiPokok");
-                hasil[8] = res.getString("ttlTransport");
-                hasil[9] = res.getString("ttlInsentif");
-                hasil[10] = res.getString("potongan");
-                hasil[11] = res.getString("gajiBersih");
-                hasil[12] = res.getString("tglGajian");
+                    hasil[0] = res.getString("idPenggajian");
+                    hasil[1] = res.getString("idPegawai");
+                    hasil[2] = res.getString("namaPegawai");
+                    hasil[3] = res.getString("ttlGajiPokok");
+                    hasil[4] = res.getString("ttlTransport");
+                    hasil[5] = res.getString("tunjangan");
+                    hasil[6] = res.getString("ttlInsentif");
+                    hasil[7] = res.getString("potongan");
+                    hasil[8] = res.getString("gajiBersih");
+                    hasil[9] = res.getString("tglGajian");
 
-                model.addRow(hasil);
+                    model.addRow(hasil);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ViewLaporan.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-            JOptionPane.showMessageDialog(null, "From Date: " + date1 + " To Date: " + date2);
-        } catch (SQLException ex) {
-            Logger.getLogger(ViewLaporan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -248,6 +246,26 @@ public class ViewLaporan extends javax.swing.JInternalFrame {
         tableLaporan = new javax.swing.JTable();
 
         setFrameIcon(null);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosed(evt);
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("From Date : ");
@@ -276,8 +294,10 @@ public class ViewLaporan extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("To Date : ");
 
+        fromDate.setDateFormatString("y-MM-d");
         fromDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        toDate.setDateFormatString("y-MM-d");
         toDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jPanel4.setToolTipText("");
@@ -399,6 +419,30 @@ public class ViewLaporan extends javax.swing.JInternalFrame {
     private void BTexportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTexportMouseClicked
         writeToExcel();
     }//GEN-LAST:event_BTexportMouseClicked
+
+    private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
+        ViewPegawai VP = new ViewPegawai();
+        VP.tampilDataPegawai();
+        tampilDataLaporan();
+    }//GEN-LAST:event_formInternalFrameClosed
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        ViewPegawai VP = new ViewPegawai();
+        VP.tampilDataPegawai();
+        tampilDataLaporan();
+    }//GEN-LAST:event_formInternalFrameClosing
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        ViewPegawai VP = new ViewPegawai();
+        VP.tampilDataPegawai();
+        tampilDataLaporan();
+    }//GEN-LAST:event_formInternalFrameOpened
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        ViewPegawai VP = new ViewPegawai();
+        VP.tampilDataPegawai();
+        tampilDataLaporan();
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -18,7 +18,7 @@ public class Dashboard extends javax.swing.JFrame {
     ViewPenggajian penggajian = new ViewPenggajian();
     ViewPinjaman pinjaman = new ViewPinjaman();
     ViewLaporan laporan = new ViewLaporan();
-    
+
     public Dashboard() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -216,122 +216,155 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void tombolMenuLaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolMenuLaporanActionPerformed
         // TODO add your handling code here:
-        tombolMenuDashboard.setBackground(new Color(51,204,51));
-        tombolMenuPegawai.setBackground(new Color(51,204,51));
-        tombolMenuPenggajian.setBackground(new Color(51,204,51));
-        tombolMenuPinjaman.setBackground(new Color(51,204,51));
+        tombolMenuDashboard.setBackground(new Color(51, 204, 51));
+        tombolMenuPegawai.setBackground(new Color(51, 204, 51));
+        tombolMenuPenggajian.setBackground(new Color(51, 204, 51));
+        tombolMenuPinjaman.setBackground(new Color(51, 204, 51));
         tombolMenuLaporan.setBackground(new Color(112, 219, 112));
-        
-        if(pegawai.isShowing()) {
-            pegawai.dispose();
-        }else if(penggajian.isShowing()){
-            penggajian.dispose();
-        }else if(pinjaman.isShowing()){
-            pinjaman.dispose();
+
+        if (pegawai.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(pegawai);
         }
-        
-        this.panelUtama.add(laporan);
-        laporan.show();
-        try {
-            laporan.setMaximum(true);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (pinjaman.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(pinjaman);
+        }
+        if (penggajian.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(penggajian);
+        }
+        if (!(laporan.isShowing())) {
+            this.panelUtama.add(laporan);
+            laporan.show();
+            try {
+                laporan.setMaximum(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }//GEN-LAST:event_tombolMenuLaporanActionPerformed
 
     private void tombolMenuPinjamanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolMenuPinjamanActionPerformed
         // TODO add your handling code here:
-        tombolMenuDashboard.setBackground(new Color(51,204,51));
-        tombolMenuPegawai.setBackground(new Color(51,204,51));
-        tombolMenuPenggajian.setBackground(new Color(51,204,51));
+        tombolMenuDashboard.setBackground(new Color(51, 204, 51));
+        tombolMenuPegawai.setBackground(new Color(51, 204, 51));
+        tombolMenuPenggajian.setBackground(new Color(51, 204, 51));
         tombolMenuPinjaman.setBackground(new Color(112, 219, 112));
-        tombolMenuLaporan.setBackground(new Color(51,204,51));
-        
-        if(pegawai.isShowing()) {
-            pegawai.dispose();
-        }else if(penggajian.isShowing()){
-            penggajian.dispose();
-        }else if(laporan.isShowing()){
-            laporan.dispose();
+        tombolMenuLaporan.setBackground(new Color(51, 204, 51));
+
+        if (pegawai.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(pegawai);
         }
-        
-        this.panelUtama.add(pinjaman);
-        pinjaman.show();
-        try {
-            pinjaman.setMaximum(true);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (laporan.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(laporan);
+        }
+        if (penggajian.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(penggajian);
+        }
+        if (!(pinjaman.isShowing())) {
+            this.panelUtama.add(pinjaman);
+            pinjaman.show();
+            try {
+                pinjaman.setMaximum(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }//GEN-LAST:event_tombolMenuPinjamanActionPerformed
 
     private void tombolMenuPenggajianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolMenuPenggajianActionPerformed
         // TODO add your handling code here:
-        tombolMenuDashboard.setBackground(new Color(51,204,51));
-        tombolMenuPegawai.setBackground(new Color(51,204,51));
+        tombolMenuDashboard.setBackground(new Color(51, 204, 51));
+        tombolMenuPegawai.setBackground(new Color(51, 204, 51));
         tombolMenuPenggajian.setBackground(new Color(112, 219, 112));
-        tombolMenuPinjaman.setBackground(new Color(51,204,51));
-        tombolMenuLaporan.setBackground(new Color(51,204,51));
-        
-        if(pegawai.isShowing()) {
-            pegawai.dispose();
-        }else if(laporan.isShowing()){
-            laporan.dispose();
-        }else if(pinjaman.isShowing()){
-            pinjaman.dispose();
+        tombolMenuPinjaman.setBackground(new Color(51, 204, 51));
+        tombolMenuLaporan.setBackground(new Color(51, 204, 51));
+
+        if (pegawai.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(pegawai);
         }
-        
-        this.panelUtama.add(penggajian);
-        penggajian.show();
-        try {
-            penggajian.setMaximum(true);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (laporan.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(laporan);
+        }
+        if (pinjaman.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(pinjaman);
+        }
+        if (!(penggajian.isShowing())) {
+            this.panelUtama.add(penggajian);
+            penggajian.show();
+            try {
+                penggajian.setMaximum(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }//GEN-LAST:event_tombolMenuPenggajianActionPerformed
 
     private void tombolMenuPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolMenuPegawaiActionPerformed
         // TODO add your handling code here:
-        tombolMenuDashboard.setBackground(new Color(51,204,51));
+        tombolMenuDashboard.setBackground(new Color(51, 204, 51));
         tombolMenuPegawai.setBackground(new Color(112, 219, 112));
-        tombolMenuPenggajian.setBackground(new Color(51,204,51));
-        tombolMenuPinjaman.setBackground(new Color(51,204,51));
-        tombolMenuLaporan.setBackground(new Color(51,204,51));
-        
-        if(laporan.isShowing()) {
-            laporan.dispose();
-        }else if(laporan.isShowing()){
-            laporan.dispose();
-        }else if(pinjaman.isShowing()){
-            pinjaman.dispose();
+        tombolMenuPenggajian.setBackground(new Color(51, 204, 51));
+        tombolMenuPinjaman.setBackground(new Color(51, 204, 51));
+        tombolMenuLaporan.setBackground(new Color(51, 204, 51));
+
+        if (laporan.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(laporan);
         }
-        
-        this.panelUtama.add(pegawai);
-        pegawai.show();
-        try {
-            pegawai.setMaximum(true);
-            ViewPegawai VP = new ViewPegawai();
-            VP.tampilDataPegawai();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (pinjaman.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(pinjaman);
+        }
+        if (penggajian.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(penggajian);
+        }
+        if (!(pegawai.isShowing())) {
+            this.panelUtama.add(pegawai);
+            pegawai.show();
+            try {
+                pegawai.setMaximum(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }//GEN-LAST:event_tombolMenuPegawaiActionPerformed
 
-    private void tombolMenuDashboardActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+    private void tombolMenuDashboardActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         // Basic : 51,204,51
         // On : 112, 219, 112
         tombolMenuDashboard.setBackground(new Color(112, 219, 112));
-        tombolMenuPegawai.setBackground(new Color(51,204,51));
-        tombolMenuPenggajian.setBackground(new Color(51,204,51));
-        tombolMenuPinjaman.setBackground(new Color(51,204,51));
-        tombolMenuLaporan.setBackground(new Color(51,204,51));
-        
-        this.panelUtama.getSelectedFrame().dispose();
-        this.panelUtama.remove(pegawai);
-        this.panelUtama.remove(laporan);
-        this.panelUtama.remove(pinjaman);
-        this.panelUtama.remove(penggajian);
-    }                                        
+        tombolMenuPegawai.setBackground(new Color(51, 204, 51));
+        tombolMenuPenggajian.setBackground(new Color(51, 204, 51));
+        tombolMenuPinjaman.setBackground(new Color(51, 204, 51));
+        tombolMenuLaporan.setBackground(new Color(51, 204, 51));
+
+        if (pegawai.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(pegawai);
+        }
+        if (laporan.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(laporan);
+        }
+        if (pinjaman.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(pinjaman);
+        }
+        if (penggajian.isShowing()) {
+            this.panelUtama.getSelectedFrame().dispose();
+            this.panelUtama.remove(penggajian);
+        }
+    }
 
     /**
      * @param args the command line arguments

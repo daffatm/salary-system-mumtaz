@@ -299,7 +299,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="26" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Rp. 00, 00"/>
+                <Property name="text" type="java.lang.String" value="Rp. 0, 00"/>
               </Properties>
             </Component>
           </SubComponents>

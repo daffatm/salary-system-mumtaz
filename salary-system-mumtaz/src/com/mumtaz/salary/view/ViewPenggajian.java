@@ -96,6 +96,8 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
         return keteranganView;
     }
     
+    
+    
     public String idPenggajian() {
         String newPenggajian = "";
         String id = "SP";
@@ -277,7 +279,7 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Total Gaji", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
         totalGajiView.setFont(new java.awt.Font("Tahoma", 1, 26)); // NOI18N
-        totalGajiView.setText("Rp. 00, 00");
+        totalGajiView.setText("Rp. 0, 00");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -642,6 +644,11 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
            //Jika no perintah
            System.out.println("Anda Memilih Ya");
        }
+       CP.clear();
+       
+       DefaultTableModel model = (DefaultTableModel) tabelInsentif.getModel();
+       model.setRowCount(0);
+       
        ViewPegawai VP = new ViewPegawai();
        VP.tampilDataPegawai();
     }//GEN-LAST:event_tombolProsesActionPerformed
@@ -699,7 +706,9 @@ public class ViewPenggajian extends javax.swing.JInternalFrame {
 
     private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
         ViewPegawai VP = new ViewPegawai();
+        ViewLaporan VL = new ViewLaporan();
         VP.tampilDataPegawai();
+        VL.tampilDataLaporan();
     }//GEN-LAST:event_formInternalFrameClosed
 
 

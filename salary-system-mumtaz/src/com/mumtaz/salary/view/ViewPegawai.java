@@ -105,6 +105,26 @@ public class ViewPegawai extends javax.swing.JInternalFrame {
 
         setBackground(new java.awt.Color(217, 217, 217));
         setFrameIcon(null);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosed(evt);
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
         jPanel1.setToolTipText("");
         jPanel1.setName(""); // NOI18N
@@ -225,6 +245,30 @@ public class ViewPegawai extends javax.swing.JInternalFrame {
             Logger.getLogger(ViewPegawai.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_tablePegawaiMouseClicked
+
+    private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
+        ViewLaporan VL = new ViewLaporan();
+        tampilDataPegawai();
+        VL.tampilDataLaporan();
+    }//GEN-LAST:event_formInternalFrameClosed
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        ViewLaporan VL = new ViewLaporan();
+        tampilDataPegawai();
+        VL.tampilDataLaporan();
+    }//GEN-LAST:event_formInternalFrameClosing
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        ViewLaporan VL = new ViewLaporan();
+        tampilDataPegawai();
+        VL.tampilDataLaporan();
+    }//GEN-LAST:event_formInternalFrameOpened
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        ViewLaporan VL = new ViewLaporan();
+        tampilDataPegawai();
+        VL.tampilDataLaporan();
+    }//GEN-LAST:event_formInternalFrameActivated
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton TombolAdd;

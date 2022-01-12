@@ -41,7 +41,7 @@ public class ModelPinjaman {
         try {
           PreparedStatement eksekusi = koneksi.getKoneksi().prepareStatement(sql);
           eksekusi.execute();
-          JOptionPane.showMessageDialog(null,"data berhasil disimpan");
+          JOptionPane.showMessageDialog(null,"Berhasil Meminjam");
         }catch (SQLException ex) {
           JOptionPane.showMessageDialog(null,"Data gagal disimpan \n"+ex);
         }

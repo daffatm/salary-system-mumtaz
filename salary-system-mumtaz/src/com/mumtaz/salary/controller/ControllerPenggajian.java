@@ -42,4 +42,21 @@ public class ControllerPenggajian {
         MP.setIdPegawai(VP.getIdPegawaiView().getText());
         MP.updateKasbon();
     }
+    
+    public void clear(){
+        VP.getIdPegawaiView().setText("");
+        VP.getNamaPegawaiView().setText("");
+        VP.getJabatanView().setText("");
+        VP.getTotalGajiView().setText("Rp. 0,00");
+        VP.getJamPelajaranView().setText("0");
+        VP.getTotalJamPelajaranView().setText("0");
+        VP.getHariKerjaView().setText("0");
+        VP.getTotalHariKerjaView().setText("0");
+        VP.getTunjanganView().setText("0");
+        VP.getKasBonView().setText("0");
+        VP.getPotonganView().setText("0");
+        VP.getSisaKasbonView().setText("0");
+        VP.getInsentifView().setText("0");
+        VP.getKeteranganView().setText("");
+    }
 }

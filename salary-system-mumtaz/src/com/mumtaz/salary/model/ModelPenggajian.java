@@ -7,6 +7,8 @@ package com.mumtaz.salary.model;
 import com.mumtaz.salary.db.Koneksi;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -152,9 +154,12 @@ public class ModelPenggajian {
     }
     
     public void simpanGaji(){
-        String sql = "INSERT INTO penggajian (idPenggajian, idPegawai, jamKerja, hariKerja, gajiPokok, transport, tunjangan, ttlGajiPokok, ttlTransport, ttlInsentif, potongan, gajiBersih)"
+        SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
+        String date = String.valueOf(fm.format(new Date()));
+        
+        String sql = "INSERT INTO penggajian (idPenggajian, idPegawai, jamKerja, hariKerja, gajiPokok, transport, tunjangan, ttlGajiPokok, ttlTransport, ttlInsentif, potongan, gajiBersih, tglGajian)"
                 + "VALUES ('"+getIdPenggajian()+"','"+getIdPegawai()+"','"+getJamKerja()+"','"+getHariKerja()+"','"+getGajiPokok()+"','"+getTransport()+"','"+getTunjangan()+"'"
-                + ",'"+getTtlGajiPokok()+"','"+getTtltransport()+"','"+getTtlInsentif()+"','"+getPotongan()+"','"+getGajiBersih()+"')";
+                + ",'"+getTtlGajiPokok()+"','"+getTtltransport()+"','"+getTtlInsentif()+"','"+getPotongan()+"','"+getGajiBersih()+"', '"+date+"')";
         try {
           PreparedStatement eksekusi = koneksi.getKoneksi().prepareStatement(sql);
           eksekusi.execute();
