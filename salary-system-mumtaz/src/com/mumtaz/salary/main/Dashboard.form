@@ -55,7 +55,7 @@
               <Component id="tombolMenuDashboard" alignment="0" max="32767" attributes="0"/>
               <Component id="tombolMenuPenggajian" alignment="0" max="32767" attributes="0"/>
               <Component id="tombolMenuPinjaman" alignment="0" max="32767" attributes="0"/>
-              <Component id="jButton5" max="32767" attributes="0"/>
+              <Component id="tombolMenuLaporan" max="32767" attributes="0"/>
               <Component id="jPanel1" alignment="0" pref="221" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
@@ -72,7 +72,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="tombolMenuPinjaman" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton5" min="-2" pref="45" max="-2" attributes="0"/>
+                  <Component id="tombolMenuLaporan" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace pref="175" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -210,7 +210,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/mumtaz/salary/pictures/debt (1).png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Master Penggajian"/>
+            <Property name="text" type="java.lang.String" value="Penggajian Pegawai"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -233,7 +233,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/mumtaz/salary/pictures/debt (1).png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Master Pinjaman"/>
+            <Property name="text" type="java.lang.String" value="Peminjaman"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -242,7 +242,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tombolMenuPinjamanActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton5">
+        <Component class="javax.swing.JButton" name="tombolMenuLaporan">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="cc" red="33" type="rgb"/>
@@ -256,13 +256,13 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/mumtaz/salary/pictures/report (1).png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Laporan"/>
+            <Property name="text" type="java.lang.String" value="Laporan Penggajian"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tombolMenuLaporanActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

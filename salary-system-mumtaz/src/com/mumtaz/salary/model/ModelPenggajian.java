@@ -158,7 +158,6 @@ public class ModelPenggajian {
         try {
           PreparedStatement eksekusi = koneksi.getKoneksi().prepareStatement(sql);
           eksekusi.execute();
-          JOptionPane.showMessageDialog(null,"data berhasil disimpan");
         }catch (SQLException ex) {
           JOptionPane.showMessageDialog(null,"Data gagal disimpan \n"+ex);
         }
@@ -171,7 +170,6 @@ public class ModelPenggajian {
         try {
           PreparedStatement eksekusi = koneksi.getKoneksi().prepareStatement(sql);
           eksekusi.execute();
-          JOptionPane.showMessageDialog(null,"data berhasil disimpan");
         }catch (SQLException ex) {
           JOptionPane.showMessageDialog(null,"Data gagal disimpan \n"+ex);
         }
