@@ -18,18 +18,6 @@ public class ControllerLaporan {
     String TampilanDate = "yyyy-MM-dd";
     
     public ControllerLaporan(ViewLaporan VL) {
-        this.VL= VL;
+        this.VL = VL;
     }
-    
-    public void Filter(){
-        ML = new ModelLaporan();
-        
-        SimpleDateFormat fm = new SimpleDateFormat(TampilanDate);
-        String toDate = String.valueOf(fm.format(VL.getToDate().getDate()));
-        String fromDate = String.valueOf(fm.format(VL.getFromDate().getDate()));
-        ML.setToDate(toDate);
-        ML.setFromDate(fromDate);
-        ML.Filter();
-    }
-    
 }

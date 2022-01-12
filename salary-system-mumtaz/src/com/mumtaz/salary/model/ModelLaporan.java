@@ -34,23 +34,4 @@ public class ModelLaporan {
     public void setToDate(String toDate) {
         this.toDate = toDate;
     }
-    
-    
-    public void Filter (){
-        
-        Koneksi connect = new Koneksi();
-        
-        
-        
-            String sql = "SELECT * FROM penggajian WHERE tglGajian >= "+getToDate()+" && tglGajian <= "+getFromDate()+"";
-        try {
-          PreparedStatement eksekusi = connect.getKoneksi().prepareStatement(sql);
-          eksekusi.execute();
-          JOptionPane.showMessageDialog(null,"data berhasil disimpan");
-        }catch (SQLException ex) {
-          JOptionPane.showMessageDialog(null,"Data gagal disimpan \n"+ex);
-        }
-    }
-    
-    
 }

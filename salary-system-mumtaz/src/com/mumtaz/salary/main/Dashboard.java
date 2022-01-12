@@ -15,9 +15,9 @@ import javax.swing.UIManager;
 public class Dashboard extends javax.swing.JFrame {
 
     ViewPegawai pegawai = new ViewPegawai();
-    ViewLaporan laporan = new ViewLaporan();
     ViewPenggajian penggajian = new ViewPenggajian();
     ViewPinjaman pinjaman = new ViewPinjaman();
+    ViewLaporan laporan = new ViewLaporan();
     
     public Dashboard() {
         initComponents();
@@ -222,6 +222,10 @@ public class Dashboard extends javax.swing.JFrame {
         tombolMenuPinjaman.setBackground(new Color(51,204,51));
         jButton5.setBackground(new Color(112, 219, 112));
         
+        if(laporan.isShowing()) {
+            laporan.dispose();
+        }
+        
         this.panelUtama.add(laporan);
         laporan.show();
         try {
@@ -241,9 +245,8 @@ public class Dashboard extends javax.swing.JFrame {
         
         if (pegawai.isShowing()) {
             pegawai.dispose();
-        }else if(penggajian.isShowing()){
-            penggajian.dispose();
         }
+        
         this.panelUtama.add(pinjaman);
         pinjaman.show();
         try {
@@ -295,7 +298,7 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tombolMenuPegawaiActionPerformed
 
-    private void tombolMenuDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolMenuDashboardActionPerformed
+    private void tombolMenuDashboardActionPerformed(java.awt.event.ActionEvent evt) {                                                    
         // TODO add your handling code here:
         // Basic : 51,204,51
         // On : 112, 219, 112
@@ -308,7 +311,7 @@ public class Dashboard extends javax.swing.JFrame {
         this.panelUtama.getSelectedFrame().dispose();
         this.panelUtama.remove(pegawai);
         this.panelUtama.remove(laporan);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }                                        
 
     /**
      * @param args the command line arguments
