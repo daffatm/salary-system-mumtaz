@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author erdiansyah
  */
-public class modelKasbon {
+public class ModelPinjaman {
     Koneksi koneksi = new Koneksi();
     private String idPegawai;
     private int kasbon;
@@ -35,9 +35,8 @@ public class modelKasbon {
     }
     
     
-    public void updateKasbon(){
-        String sql = "UPDATE pegawai SET kasbon = '"+getKasbon()+"'"
-                     +"'WHERE idPegawai = '"+getIdPegawai()+"'";
+    public void updatePinjaman(){
+        String sql = "UPDATE pegawai SET kasbon = '"+getKasbon()+"' WHERE idPegawai = '"+getIdPegawai()+"'";
         
         try {
           PreparedStatement eksekusi = koneksi.getKoneksi().prepareStatement(sql);
