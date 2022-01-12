@@ -140,7 +140,8 @@ public class ViewListDataPegawai extends javax.swing.JFrame {
         vPG.getNamaPegawaiView().setText(tabelDataPegawai.getValueAt(listX, 1).toString());
         vPG.getJabatanView().setText(tabelDataPegawai.getValueAt(listX, 6).toString());
         vPG.getKasBonView().setText(tabelDataPegawai.getValueAt(listX, 7).toString());
-        
+        vPG.gajiPokok = 22000;
+        vPG.uangTransport = 18000;
         if(tabelDataPegawai.getValueAt(listX, 6).toString().equals("Kepala Sekolah")){
             vPG.getTunjanganView().setText("2000000");
             vPG.tunjangan = 2000000;
