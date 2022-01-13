@@ -16,5 +16,5 @@ Aplikasi Desktop Salary System Mumtaz sendiri merupakan aplikasi penggajian kary
 #
 
 ## Link
-Link Github : https://github.com/daffatm/salary-system-mumtaz
-Link Laporan: https://drive.google.com/file/d/1zO4yWEDJBgU0DQ0vAdrdjLFBxxNfD2b5/view?usp=sharing
+- Link Github : https://github.com/daffatm/salary-system-mumtaz
+- Link Laporan: https://drive.google.com/file/d/1zO4yWEDJBgU0DQ0vAdrdjLFBxxNfD2b5/view?usp=sharing
